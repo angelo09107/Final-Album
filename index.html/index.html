@@ -1,0 +1,3842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Picture Album</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="infinite icon.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="light-mode">
+
+<!-- ═══════════════════════════════════════════
+     PASSWORD GATE
+═══════════════════════════════════════════ -->
+<div id="passwordGate">
+  <div class="gate-bg">
+    <div class="gate-bg-tile" style="--bg:#f2d9d0;--r:-8deg;--x:5%;--y:10%"></div>
+    <div class="gate-bg-tile" style="--bg:#c4a882;--r:5deg;--x:35%;--y:5%"></div>
+    <div class="gate-bg-tile" style="--bg:#a8b89a;--r:-3deg;--x:65%;--y:8%"></div>
+    <div class="gate-bg-tile" style="--bg:#d4a5a0;--r:7deg;--x:80%;--y:15%"></div>
+    <div class="gate-bg-tile" style="--bg:#c4a882;--r:-5deg;--x:15%;--y:55%"></div>
+    <div class="gate-bg-tile" style="--bg:#b8858a;--r:4deg;--x:50%;--y:60%"></div>
+    <div class="gate-bg-tile" style="--bg:#f2d9d0;--r:-6deg;--x:75%;--y:55%"></div>
+  </div>
+  <div class="gate-overlay"></div>
+  <div class="petal-rain" id="gatePetals"></div>
+
+  <span class="floater" style="top:12%;left:6%;font-size:1.6rem;opacity:.4">🌸</span>
+  <span class="floater" style="top:18%;right:9%;font-size:1.1rem;opacity:.35;animation-delay:-3s">✦</span>
+  <span class="floater" style="bottom:16%;left:7%;font-size:1.3rem;opacity:.35;animation-delay:-2s">🌷</span>
+  <span class="floater" style="bottom:20%;right:8%;font-size:1.4rem;opacity:.38;animation-delay:-4s">🦋</span>
+  <span class="floater" style="top:40%;left:3%;font-size:1rem;opacity:.3;animation-delay:-1s">✧</span>
+  <div class="sparkle" style="top:28%;left:18%;--dur:3s"></div>
+  <div class="sparkle" style="top:55%;right:22%;--dur:4s;--del:-1.5s"></div>
+  <div class="sparkle" style="bottom:30%;left:40%;--dur:3.5s;--del:-2.5s"></div>
+  <div class="sparkle" style="top:70%;left:25%;--dur:2.8s;--del:-0.8s"></div>
+
+  <div class="gate-card">
+    <span class="gate-corner-deco tl">🌸</span>
+    <span class="gate-corner-deco tr">🌸</span>
+    <span class="gate-corner-deco bl">🌷</span>
+    <span class="gate-corner-deco br">🌷</span>
+    <div class="gate-icon-ring">
+      <div class="gate-icon">🔒</div>
+    </div>
+    <h1 class="gate-title">My Picture Album</h1>
+    <div class="gate-title-rule"><span>✦</span></div>
+    <p class="gate-subtitle">This album is private.<br>Enter the password to continue.</p>
+    <div class="gate-input-wrap">
+      <input type="password" id="gateInput" class="gate-input" placeholder="enter password..." autocomplete="current-password" autofocus />
+      <button class="gate-eye" id="gateEye" type="button" aria-label="Show password">👁</button>
+    </div>
+    <p class="gate-error" id="gateError"></p>
+    <button class="gate-btn" id="gateBtn"><span>Open Album</span><span class="gate-btn-icon">✦</span></button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ALBUM WRAPPER
+═══════════════════════════════════════════ -->
+<div id="albumWrapper" style="display:none">
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">✿ Album</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#memories">Memories</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#graduation">Graduation</a></li>
+    <li><a href="#about">About</a></li>
+
+  </ul>
+  <div class="nav-controls">
+    <button class="ctrl-btn" id="darkToggle" title="Toggle dark mode">☾</button>
+    <button class="ctrl-btn" id="musicToggle" title="Toggle music">♪</button>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-tile" style="--bg:#f2d9d0;--r:-8deg;--x:5%;--y:10%"></div>
+    <div class="hero-bg-tile" style="--bg:#c4a882;--r:5deg;--x:35%;--y:5%"></div>
+    <div class="hero-bg-tile" style="--bg:#a8b89a;--r:-3deg;--x:65%;--y:8%"></div>
+    <div class="hero-bg-tile" style="--bg:#d4a5a0;--r:7deg;--x:80%;--y:15%"></div>
+    <div class="hero-bg-tile" style="--bg:#c4a882;--r:-5deg;--x:15%;--y:55%"></div>
+    <div class="hero-bg-tile" style="--bg:#b8858a;--r:4deg;--x:50%;--y:60%"></div>
+    <div class="hero-bg-tile" style="--bg:#f2d9d0;--r:-6deg;--x:75%;--y:55%"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="petal-rain" id="heroPetals"></div>
+  <div class="hero-washi w1"></div>
+  <div class="hero-washi w2"></div>
+
+  <span class="floater" style="top:18%;left:8%;font-size:1.8rem;opacity:.42">🦋</span>
+  <span class="floater" style="top:65%;right:9%;animation-delay:-3s;font-size:1.1rem;opacity:.38">🦋</span>
+  <span class="floater" style="top:25%;right:14%;font-size:1.4rem;opacity:.4">🌸</span>
+  <span class="floater" style="bottom:25%;left:10%;animation-delay:-2s;font-size:1.3rem;opacity:.38">🌷</span>
+  <span class="floater" style="top:50%;left:4%;font-size:.9rem;opacity:.32;animation-delay:-1s">✧</span>
+  <div class="sparkle" style="top:30%;left:20%;--dur:3s"></div>
+  <div class="sparkle" style="top:50%;right:25%;--dur:4s;--del:-1.5s"></div>
+  <div class="sparkle" style="bottom:35%;left:40%;--dur:3.5s;--del:-2s"></div>
+  <div class="sparkle" style="top:70%;right:15%;--dur:2.8s;--del:-0.5s"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">✦ a little collection of ✦</p>
+    <h1 class="hero-title">Picture Album</h1>
+    <div class="hero-divider">
+      <span class="hd-line"></span>
+      <span class="hd-flower">🌸</span>
+      <span class="hd-line"></span>
+    </div>
+    <p class="hero-subtitle">Moments pressed in time, stories told in light and shadow</p>
+    <a href="#gallery" class="hero-btn">Open the Album ✦</a>
+  </div>
+
+  <div class="hero-polaroids">
+    <div class="hero-pol" style="--r:-7deg;--delay:0.2s">
+      <div class="pol-photo" style="background-image: url('pic8.jpg'); background-size: cover; background-position: center;"></div>
+      <span class="pol-cap">golden hour</span>
+    </div>
+    <div class="hero-pol" style="--r:3deg;--delay:0.4s">
+      <div class="pol-photo" style="background-image: url('pic7.jpg'); background-size: cover; background-position: center;"></div>
+      <span class="pol-cap">summer '26</span>
+    </div>
+    <div class="hero-pol" style="--r:-4deg;--delay:0.6s">
+      <div class="pol-photo" style="background-image: url('pic2.jpg'); background-size: cover; background-position: center;"></div>
+      <span class="pol-cap">with love ♡</span>
+    </div>
+    <div class="hero-pol" style="--r:6deg;--delay:0.8s">
+      <div class="pol-photo" style="background-image: url('pic9.jpg'); background-size: cover; background-position: center;"></div>
+      <span class="pol-cap">always</span>
+    </div>
+  </div>
+
+  <!-- Aesthetic stickers row -->
+  <div class="sticker-row">
+    <span class="sticker">📷 captured</span>
+    <span class="sticker">🎞 film roll</span>
+    <span class="sticker">🌿 memories</span>
+    <span class="sticker">✨ forever</span>
+  </div>
+</section>
+
+<!-- ── QUOTE BANNER ── -->
+<div class="quote-banner reveal">
+  <span class="qb-leaf">🍃</span>
+  <p>"Not all those who wander are lost — some are just making memories."</p>
+  <span class="qb-leaf">🍃</span>
+</div>
+
+<!-- ── GALLERY ── -->
+<section id="gallery" class="section">
+  <div class="torn-edge-top"></div>
+  <span class="sec-corner-flower" style="top:2rem;left:1.5rem">🌿</span>
+  <span class="sec-corner-flower" style="top:2rem;right:1.5rem">🌿</span>
+
+  <div class="section-header reveal">
+    <div class="section-tag">✦ browse ✦</div>
+    <h2 class="section-title">Gallery</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">A masonry of memories, each one a world of its own</p>
+  </div>
+
+  <div class="film-strip reveal">
+    <div class="film-reel left"></div>
+    <div class="film-frames">
+      <div class="film-cell" style="background-image: url('pic1.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="film-cell" style="background-image: url('pic2.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="film-cell" style="background-image: url('pic4.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="film-cell" style="background-image: url('pic7.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="film-cell" style="background-image: url('pic8.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="film-cell" style="background: linear-gradient(135deg,#f2d9d0,#d4a5a0);"></div>
+      <div class="film-cell" style="background: linear-gradient(135deg,#f2d9d0,#d4a5a0);"></div>
+    </div>
+    <div class="film-reel right"></div>
+  </div>
+
+  <div class="masonry-grid" id="galleryGrid"></div>
+</section>
+
+<!-- ── MEMORIES ── -->
+<section id="memories" class="section section-alt">
+  <div class="torn-edge-top alt"></div>
+  <span class="sec-corner-flower" style="top:2rem;left:1.5rem">🦋</span>
+  <span class="sec-corner-flower" style="top:2rem;right:1.5rem">🦋</span>
+
+  <div class="section-header reveal">
+    <div class="section-tag">♡ cherished ♡</div>
+    <h2 class="section-title">Memories</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Polaroids from moments that live in the heart</p>
+  </div>
+
+  <span class="deco-abs" style="top:10%;right:5%;opacity:.28;font-size:2rem">🦋</span>
+  <span class="deco-abs" style="top:20%;left:3%;opacity:.22;font-size:2.2rem;transform:rotate(-15deg)">🌸</span>
+  <span class="deco-abs" style="bottom:15%;right:4%;opacity:.22;font-size:1.8rem;transform:rotate(20deg)">🌷</span>
+
+  <div class="memories-grid" id="memoriesGrid"></div>
+
+  <div class="handwritten-banner reveal">
+    <span class="hwb-line"></span>
+    <p>"these are the days we'll look back on and smile ♡"</p>
+    <span class="hwb-line"></span>
+  </div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section id="timeline" class="section">
+  <div class="torn-edge-top"></div>
+  <span class="sec-corner-flower" style="top:2rem;left:1.5rem">✦</span>
+  <span class="sec-corner-flower" style="top:2rem;right:1.5rem">✦</span>
+
+  <div class="section-header reveal">
+    <div class="section-tag">✧ in order ✧</div>
+    <h2 class="section-title">Timeline</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Our story, told year by year</p>
+  </div>
+  <div class="timeline-wrap" id="timelineWrap">
+    <div class="timeline-spine"></div>
+  </div>
+</section>
+
+<!-- ── GRADUATION ── -->
+<section id="graduation" class="section section-alt grad-section">
+  <div class="torn-edge-top alt"></div>
+  <div class="confetti-layer" id="confettiLayer"></div>
+
+  <div class="grad-gold-sparkle" style="top:5%;left:7%">✦</div>
+  <div class="grad-gold-sparkle" style="top:7%;right:9%">✧</div>
+  <div class="grad-gold-sparkle" style="bottom:7%;left:5%">✦</div>
+  <div class="grad-gold-sparkle" style="bottom:9%;right:7%">✧</div>
+  <span class="grad-cap-float" style="top:4%;left:2%">🎓</span>
+  <span class="grad-cap-float" style="top:4%;right:3%;animation-delay:-3s">🎓</span>
+
+  <div class="section-header reveal">
+    <div class="section-tag gold-tag">✦ class of 2026 ✦</div>
+    <h2 class="section-title grad-title">Graduation Pictures</h2>
+    <div class="section-rule gold-rule"></div>
+    <p class="section-sub">A timeline of unforgettable graduation moments</p>
+  </div>
+
+  <div class="grad-ribbon reveal">
+    <div class="ribbon-left"></div>
+    <div class="ribbon-center">🎓 Congratulations, Class of 2026 🎓</div>
+    <div class="ribbon-right"></div>
+  </div>
+
+  <div class="timeline-wrap" id="graduationTimeline">
+    <div class="timeline-spine gold-spine"></div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="section section-alt">
+  <div class="torn-edge-top alt"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✿ hello there ✿</div>
+    <h2 class="section-title">About</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-inner reveal">
+    <div class="about-avatar-wrap">
+      <div class="about-avatar">✿</div>
+      <div class="about-avatar-ring"></div>
+    </div>
+    <h3 class="about-name">A little corner of the internet</h3>
+    <p class="about-text">
+      This album was built with care and soft light. Every photograph holds a feeling —
+      the warmth of an afternoon, the quiet of a rainy day, the noise of a perfect summer.
+      Scroll through and stay a while.
+    </p>
+    <div class="about-tags">
+      <span class="tag">📷 photography</span>
+      <span class="tag">🍂 nostalgia</span>
+      <span class="tag">🎞 film</span>
+      <span class="tag">🌿 vintage</span>
+      <span class="tag">✨ dreamy</span>
+      <span class="tag">☕ cozy</span>
+    </div>
+    <div class="about-note-card">
+      <p>"Every click of a camera is a love letter to a moment."</p>
+      <span>— with love, always ♡</span>
+    </div>
+  </div>
+</section>
+<section id="moodboard" class="section">
+  <div class="torn-edge-top"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✦ mood ✦</div>
+    <h2 class="section-title">Mood Board</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">A freeform canvas of moments</p>
+  </div>
+  <div class="moodboard-canvas" id="moodboardCanvas"></div>
+</section>
+<!-- ── FILM ROLL ── -->
+<section id="filmroll" class="section">
+  <div class="torn-edge-top"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">🎞 drag to scroll 🎞</div>
+    <h2 class="section-title">Film Roll</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Pull the film, see the memories</p>
+  </div>
+  <div class="filmroll-track-wrap" id="filmrollWrap">
+    <div class="filmroll-sprockets-top"  id="filmSprocTop"></div>
+    <div class="filmroll-strip"          id="filmrollStrip"></div>
+    <div class="filmroll-sprockets-bottom" id="filmSprocBot"></div>
+  </div>
+  <p class="filmroll-hint">← drag to scroll →</p>
+</section>
+
+<!-- ── PHOTO BOOTH ── -->
+<section id="photobooth" class="section section-alt">
+  <div class="torn-edge-top alt"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">📷 instant prints 📷</div>
+    <h2 class="section-title">Photo Booth</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Create your own keepsake strip</p>
+  </div>
+  <div class="photobooth-inner reveal">
+    <div class="booth-strip-wrap">
+      <div class="booth-strip" id="boothStrip">
+        <!-- frames injected by JS -->
+      </div>
+    </div>
+    <div class="booth-controls">
+      <h3>Customize ✦</h3>
+      <p style="font-family:var(--fp);font-size:.78rem;color:var(--ltxt);margin-bottom:.8rem;">Choose strip color</p>
+      <div class="booth-color-row" id="boothColors"></div>
+      <div class="booth-photo-select">
+        <label>Frame 1</label>
+        <select id="boothSel1"></select>
+        <label>Frame 2</label>
+        <select id="boothSel2"></select>
+        <label>Frame 3</label>
+        <select id="boothSel3"></select>
+        <label>Frame 4</label>
+        <select id="boothSel4"></select>
+      </div>
+      <button class="booth-download-btn" id="boothDownload">📥 Download Strip</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── ANIMATED LETTER ── -->
+<section id="letter-section" class="section">
+  <div class="torn-edge-top"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✉ a note for you ✉</div>
+    <h2 class="section-title">A Letter</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Click the envelope to open it</p>
+  </div>
+  <div class="letter-envelope-wrap reveal">
+    <div class="letter-envelope" id="letterEnvelope">
+      <div class="env-body"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal">🌸</div>
+      <div class="env-stamp">🌷</div>
+      <p class="env-label">open me ♡</p>
+    </div>
+    <button class="letter-open-btn" id="letterOpenBtn">Open the Letter ✦</button>
+    <div class="letter-paper" id="letterPaper">
+      <span class="letter-line">Dear intettt,</span>
+      <span class="letter-line">&nbsp;</span>
+      <span class="letter-line">Every photo in this album holds a piece of something real.</span>
+      <span class="letter-line">A moment that passed, but never disappeared.</span>
+      <span class="letter-line">&nbsp;</span>
+      <span class="letter-line">Thank you for being part of these memories.</span>
+      <span class="letter-line">Thank you for being here.</span>
+      <span class="letter-line"></span>
+      <span class="letter-line">With love you, always ♡</span>
+       <span class="letter-line">I’m still here waiting for you intettt until pwede na ang tanan ♡</span>
+      <div class="letter-wax-seal" id="letterSeal" style="display:none;">🌸</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VINTAGE POSTCARD ── -->
+<section id="postcard-section" class="section section-alt">
+  <div class="torn-edge-top alt"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✦ send a memory ✦</div>
+    <h2 class="section-title">Postcard</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Make and download your own vintage postcard</p>
+  </div>
+  <div class="postcard-inner reveal">
+    <div class="postcard-preview">
+      <div class="postcard-front" id="postcardFront">
+        <div class="postcard-front-photo" id="postcardPhoto" style="background:linear-gradient(135deg,#f2d9d0,#d4a5a0)">
+          <div class="postcard-front-overlay"></div>
+          <div class="postcard-front-title" id="postcardTitle">My Memory</div>
+        </div>
+        <div class="postcard-stamp-area" id="postcardStampFront">🌸</div>
+      </div>
+      <br>
+      <div class="postcard-back" id="postcardBack">
+        <div class="postcard-back-divider">
+          <div class="postcard-back-left">
+            <div class="postcard-back-message" id="postcardMsg">Write your message here...</div>
+          </div>
+          <div class="postcard-back-right">
+            <div class="postcard-address-lines">
+              <div class="postcard-address-line"></div>
+              <div class="postcard-address-line"></div>
+              <div class="postcard-address-line"></div>
+              <div class="postcard-address-line"></div>
+            </div>
+            <div class="postcard-stamp-back" id="postcardStampBack">🌸</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="postcard-controls">
+      <h3>Design it ✦</h3>
+      <div class="pc-field">
+        <label>Choose Photo</label>
+        <select id="pcPhotoSel"></select>
+      </div>
+      <div class="pc-field">
+        <label>Title</label>
+        <input type="text" id="pcTitle" placeholder="My Memory" value="My Memory">
+      </div>
+      <div class="pc-field">
+        <label>Message</label>
+        <textarea id="pcMsg" rows="3" placeholder="Write something sweet..."></textarea>
+      </div>
+      <div class="pc-field">
+        <label>Stamp</label>
+        <div class="pc-stamps" id="pcStamps"></div>
+      </div>
+      <button class="pc-download-btn" id="pcDownload">📥 Download Postcard</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── HANDWRITING GUESTBOOK ── -->
+<section id="guestbook" class="section">
+  <div class="torn-edge-top"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✍ sign your name ✍</div>
+    <h2 class="section-title">Guestbook</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Draw or write something, leave your mark</p>
+  </div>
+  <div class="guestbook-inner reveal">
+    <input class="gb-name-input" id="gbName" placeholder="Your name or nickname ♡" maxlength="30">
+    <div class="guestbook-tools">
+      <div class="gb-color active" style="background:#4a3728;" data-color="#4a3728"></div>
+      <div class="gb-color" style="background:#b8858a;" data-color="#b8858a"></div>
+      <div class="gb-color" style="background:#a8b89a;" data-color="#a8b89a"></div>
+      <div class="gb-color" style="background:#c4a882;" data-color="#c4a882"></div>
+      <div class="gb-color" style="background:#d4a853;" data-color="#d4a853"></div>
+      <div class="gb-color" style="background:#b8858a;" data-color="pink"></div>
+      <span style="width:1px;height:24px;background:var(--blush);margin:0 .2rem;"></span>
+      <button class="gb-size active" data-size="3">S</button>
+      <button class="gb-size" data-size="6">M</button>
+      <button class="gb-size" data-size="12">L</button>
+      <span style="width:1px;height:24px;background:var(--blush);margin:0 .2rem;"></span>
+      <button class="gb-btn" id="gbEraser">⌫ Erase</button>
+      <button class="gb-btn" id="gbClear">✕ Clear</button>
+      <button class="gb-submit-btn" id="gbSubmit">Pin it ✦</button>
+    </div>
+    <div class="guestbook-canvas-wrap">
+      <canvas class="guestbook-canvas" id="gbCanvas" width="800" height="200"></canvas>
+    </div>
+    <div class="guestbook-wall" id="gbWall"></div>
+  </div>
+</section>
+
+<!-- ── MIRROR SELFIE WALL ── -->
+<section id="mirror-section" class="section">
+  <div class="torn-edge-top"></div>
+  <div class="section-header reveal">
+    <div class="section-tag">✦ vanity mirror ✦</div>
+    <h2 class="section-title">Mirror Wall</h2>
+    <div class="section-rule"></div>
+    <p class="section-sub">Every picture, a reflection</p>
+  </div>
+  <div class="mirror-frame reveal">
+    <div class="mirror-lights" id="mirrorLights"></div>
+    <div class="mirror-side-lights left"  id="mirrorSideL"></div>
+    <div class="mirror-side-lights right" id="mirrorSideR"></div>
+    <div class="mirror-glass">
+      <div class="mirror-reflection"></div>
+      <div class="mirror-photos-grid" id="mirrorGrid"></div>
+    </div>
+    <p class="mirror-vanity-text">you look wonderful ♡</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-petal-row">
+    <span>🌸</span><span class="fp-gold">✦</span>
+    <span>🌷</span><span class="fp-gold">✧</span>
+    <span>🌸</span><span class="fp-gold">✦</span>
+    <span>🌷</span>
+  </div>
+  <p class="footer-quote">"Every picture tells a story."</p>
+  <p class="footer-sub">crafted with ♡ — Picture Album © 2026</p>
+  <div class="footer-stripe"></div>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="lb-backdrop" id="lbBackdrop"></div>
+  <div class="lb-container">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <div class="lb-photo-wrap">
+      <div class="lb-polaroid-frame">
+        <div class="lb-photo" id="lbPhoto"></div>
+      </div>
+      <p class="lb-caption" id="lbCaption"></p>
+      <p class="lb-counter" id="lbCounter"></p>
+    </div>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  </div>
+</div>
+
+<audio id="bgMusic" src="lofi.mp3" loop></audio>
+<audio id="gradMusic" src="Kidult.mp3" loop></audio>
+</div><!-- end albumWrapper -->
+
+<script src="script.js"></script>
+</body>
+<style>
+    /* ═══════════════════════════════════════════════════════
+   MY PICTURE ALBUM — style.css  (enhanced edition)
+   Dreamy · Vintage · Scrapbook · Pinterest-inspired
+═══════════════════════════════════════════════════════ */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+/* ── TOKENS ── */
+:root{
+  --cream:#fdf8f0; --beige:#f5ede0; --blush:#f2d9d0;
+  --rose:#d4a5a0;  --mauve:#b8858a; --brown:#8b6355;
+  --tan:#c4a882;   --sage:#a8b89a;  --ivory:#fefcf8;
+  --dtxt:#4a3728;  --mtxt:#7a5c4f;  --ltxt:#a08070;
+  --gold:#d4a853;  --gold-lt:#f0cc7a;
+  --shsm:rgba(139,99,85,.12); --shmd:rgba(139,99,85,.20); --shlg:rgba(74,55,40,.28);
+  --tape:rgba(212,168,83,.45); --tape-pink:rgba(210,160,160,.40);
+  --nav-bg:rgba(253,248,240,.93);
+  --bg1:#fdf8f0; --bg2:#f5ede0;
+  --fs:'Dancing Script',cursive; --fe:'Playfair Display',serif; --fp:'Poppins',sans-serif;
+}
+body.dark-mode{
+  --cream:#1c1410; --beige:#241a12; --blush:#2c1a17;
+  --rose:#5a3535;  --mauve:#8a5a5a; --brown:#c4a882;
+  --tan:#8b6355;   --ivory:#201510;
+  --dtxt:#f0e0d0;  --mtxt:#c0a090;  --ltxt:#907060;
+  --shsm:rgba(0,0,0,.3); --shmd:rgba(0,0,0,.42); --shlg:rgba(0,0,0,.58);
+  --tape:rgba(170,120,50,.35); --tape-pink:rgba(150,90,90,.35);
+  --nav-bg:rgba(28,20,16,.95);
+  --bg1:#1c1410; --bg2:#241a12;
+}
+body{font-family:var(--fp);background:var(--cream);color:var(--dtxt);min-height:100vh;overflow-x:hidden;transition:background .4s,color .4s;}
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--beige);}
+::-webkit-scrollbar-thumb{background:var(--rose);border-radius:3px;}
+
+/* ═══════════════════════════════════════════════════════
+   PETAL RAIN
+═══════════════════════════════════════════════════════ */
+.petal-rain{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.petal{
+  position:absolute;top:-40px;
+  font-size:clamp(.7rem,1.5vw,1.2rem);
+  opacity:0;
+  animation:petalFall linear infinite;
+}
+@keyframes petalFall{
+  0%{transform:translateY(0) rotate(0deg) translateX(0);opacity:.7;}
+  80%{opacity:.5;}
+  100%{transform:translateY(110vh) rotate(360deg) translateX(var(--drift,20px));opacity:0;}
+}
+
+/* ═══════════════════════════════════════════════════════
+   PASSWORD GATE
+═══════════════════════════════════════════════════════ */
+#passwordGate{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+#passwordGate.unlocking{animation:gateExit .7s ease forwards;}
+@keyframes gateExit{
+  0%{opacity:1;transform:scale(1);}
+  60%{opacity:1;transform:scale(1.04);}
+  100%{opacity:0;transform:scale(.96);}
+}
+.gate-bg{position:absolute;inset:0;filter:blur(26px) saturate(.8);opacity:.45;pointer-events:none;}
+body.dark-mode .gate-bg{opacity:.2;}
+.gate-bg-tile{
+  position:absolute;width:200px;height:160px;background:var(--bg);border-radius:6px;
+  transform:rotate(var(--r));left:var(--x);top:var(--y);
+}
+.gate-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(160deg,rgba(253,248,240,.62),rgba(245,237,224,.5),rgba(242,217,208,.58));
+}
+body.dark-mode .gate-overlay{background:rgba(20,12,8,.72);}
+
+/* Gate card */
+.gate-card{
+  position:relative;z-index:2;
+  background:var(--ivory);border-radius:20px;
+  padding:2.8rem 2.6rem 2.2rem;width:min(440px,92vw);
+  text-align:center;
+  box-shadow:0 0 0 1px var(--blush),0 20px 60px var(--shlg),0 4px 16px var(--shsm);
+  animation:cardIn .9s ease both;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(32px) scale(.97);}to{opacity:1;transform:none;}}
+.gate-card::before{
+  content:'';position:absolute;inset:-2px;border-radius:22px;z-index:-1;
+  background:linear-gradient(135deg,var(--rose),var(--tan),var(--blush),var(--rose));
+  background-size:300% 300%;
+  animation:borderFlow 4s ease infinite;
+  opacity:.55;
+}
+@keyframes borderFlow{
+  0%,100%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+}
+
+/* Corner flowers on card */
+.gate-corner-deco{
+  position:absolute;font-size:1.1rem;opacity:.55;pointer-events:none;
+  animation:float 5s ease-in-out infinite;
+}
+.gate-corner-deco.tl{top:10px;left:12px;}
+.gate-corner-deco.tr{top:10px;right:12px;animation-delay:-2s;}
+.gate-corner-deco.bl{bottom:36px;left:12px;animation-delay:-1s;}
+.gate-corner-deco.br{bottom:36px;right:12px;animation-delay:-3s;}
+
+.gate-icon-ring{
+  width:70px;height:70px;border-radius:50%;margin:0 auto .75rem;
+  background:linear-gradient(135deg,var(--blush),var(--rose));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px var(--shmd);
+  animation:float 4s ease-in-out infinite;
+}
+.gate-icon{font-size:1.8rem;}
+.gate-title{font-family:var(--fs);font-size:clamp(2rem,6vw,2.9rem);color:var(--mauve);margin-bottom:.3rem;}
+.gate-title-rule{
+  display:flex;align-items:center;justify-content:center;
+  gap:.6rem;margin:.4rem 0 .9rem;
+  font-size:.7rem;color:var(--ltxt);letter-spacing:4px;
+}
+.gate-title-rule::before,.gate-title-rule::after{
+  content:'';flex:1;max-width:60px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--rose));
+}
+.gate-title-rule::after{background:linear-gradient(90deg,var(--rose),transparent);}
+.gate-subtitle{font-family:var(--fe);font-style:italic;font-size:.9rem;color:var(--ltxt);margin-bottom:1.8rem;line-height:1.7;}
+.gate-input-wrap{position:relative;margin-bottom:.5rem;}
+.gate-input{
+  width:100%;padding:.85rem 3rem .85rem 1.3rem;
+  border:1.5px solid var(--blush);border-radius:30px;
+  background:var(--cream);color:var(--dtxt);
+  font-family:var(--fp);font-size:.95rem;letter-spacing:2px;
+  outline:none;text-align:center;
+  transition:border-color .25s,box-shadow .25s;
+}
+.gate-input:focus{border-color:var(--rose);box-shadow:0 0 0 4px rgba(212,165,160,.2);}
+.gate-input::placeholder{letter-spacing:1px;color:var(--ltxt);font-style:italic;}
+.gate-input.shake{animation:shake .4s ease;border-color:#c0705a;}
+@keyframes shake{0%,100%{transform:translateX(0);}20%{transform:translateX(-8px);}40%{transform:translateX(8px);}60%{transform:translateX(-5px);}80%{transform:translateX(5px);}}
+.gate-eye{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1rem;opacity:.5;transition:opacity .2s;padding:4px;}
+.gate-eye:hover{opacity:.9;}
+.gate-error{font-family:var(--fp);font-size:.8rem;color:#c0705a;min-height:1.3rem;margin-bottom:.5rem;letter-spacing:.3px;}
+.gate-btn{
+  width:100%;padding:.88rem;
+  background:linear-gradient(135deg,var(--rose),var(--mauve));
+  color:#fff;border:none;border-radius:30px;
+  font-family:var(--fp);font-size:.82rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;box-shadow:0 6px 22px var(--shmd);margin-bottom:1.3rem;
+  transition:transform .2s,box-shadow .3s,filter .2s;
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+}
+.gate-btn:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 10px 30px var(--shlg);}
+.gate-btn-icon{font-size:.9rem;animation:spinPulse 3s ease-in-out infinite;}
+@keyframes spinPulse{0%,100%{transform:rotate(0deg) scale(1);}50%{transform:rotate(180deg) scale(1.3);}}
+.gate-footer-note{font-family:var(--fp);font-size:.68rem;color:var(--ltxt);}
+.gate-footer-note code{font-size:.68rem;background:var(--blush);padding:1px 6px;border-radius:4px;color:var(--brown);}
+body.dark-mode .gate-input{background:var(--beige);border-color:var(--rose);}
+
+/* ═══════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════ */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:62px;
+  background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--blush);transition:background .4s,box-shadow .3s;
+}
+#navbar.scrolled{box-shadow:0 4px 24px var(--shsm);}
+.nav-brand{font-family:var(--fs);font-size:1.75rem;color:var(--mauve);}
+.nav-links{display:flex;gap:.2rem;list-style:none;}
+.nav-links a{
+  font-family:var(--fp);font-size:.78rem;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--mtxt);text-decoration:none;padding:6px 12px;border-radius:20px;transition:background .25s,color .25s;
+}
+.nav-links a:hover,.nav-links a.active{background:var(--blush);color:var(--mauve);}
+.nav-controls{display:flex;gap:.5rem;}
+.ctrl-btn{
+  background:var(--blush);border:none;border-radius:50%;width:36px;height:36px;
+  cursor:pointer;font-size:1rem;color:var(--dtxt);display:flex;align-items:center;justify-content:center;
+  transition:background .25s,transform .2s;
+}
+.ctrl-btn:hover{background:var(--rose);color:#fff;transform:scale(1.08);}
+.ctrl-btn.active{background:var(--mauve);color:#fff;}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--mtxt);border-radius:2px;transition:.3s;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:768px){
+  .nav-toggle{display:flex;}
+  .nav-links{
+    position:fixed;top:62px;left:0;right:0;
+    background:var(--nav-bg);flex-direction:column;gap:0;
+    padding:1rem;transform:translateY(-110%);transition:transform .35s;
+    border-bottom:1px solid var(--blush);backdrop-filter:blur(14px);
+  }
+  .nav-links.open{transform:translateY(0);}
+  .nav-links a{display:block;padding:.75rem 1rem;border-radius:8px;}
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;
+  padding:80px 2rem 5rem;
+}
+.hero-bg{position:absolute;inset:0;filter:blur(28px) saturate(.8);opacity:.45;pointer-events:none;}
+body.dark-mode .hero-bg{opacity:.2;}
+.hero-bg-tile{
+  position:absolute;width:200px;height:158px;background:var(--bg);border-radius:6px;
+  transform:rotate(var(--r));left:var(--x);top:var(--y);
+}
+.hero-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(155deg,rgba(253,248,240,.55),rgba(245,237,224,.42),rgba(242,217,208,.52));
+}
+body.dark-mode .hero-overlay{background:rgba(28,20,16,.68);}
+
+/* Washi tape strips across hero */
+.hero-washi{
+  position:absolute;left:0;right:0;height:18px;pointer-events:none;z-index:3;
+  opacity:.55;
+}
+.hero-washi.w1{top:68px;background:repeating-linear-gradient(90deg,rgba(212,168,83,.4) 0,rgba(212,168,83,.4) 60px,transparent 60px,transparent 80px);}
+.hero-washi.w2{bottom:80px;background:repeating-linear-gradient(90deg,rgba(210,160,160,.4) 0,rgba(210,160,160,.4) 50px,transparent 50px,transparent 75px);}
+
+.hero-content{position:relative;z-index:2;animation:fadeUp 1s ease both;}
+.hero-eyebrow{font-family:var(--fe);font-style:italic;font-size:1rem;color:var(--tan);letter-spacing:2px;margin-bottom:.5rem;}
+.hero-title{
+  font-family:var(--fs);font-size:clamp(3.2rem,9vw,6.5rem);color:var(--mauve);
+  line-height:1.05;margin-bottom:.6rem;text-shadow:0 2px 20px var(--shsm);
+}
+.hero-divider{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  margin:.6rem 0 1rem;
+}
+.hd-line{flex:1;max-width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--rose));}
+.hd-line:last-child{background:linear-gradient(90deg,var(--rose),transparent);}
+.hd-flower{font-size:1.1rem;animation:float 4s ease-in-out infinite;}
+.hero-subtitle{
+  font-family:var(--fe);font-style:italic;font-size:clamp(.95rem,2.2vw,1.2rem);
+  color:var(--mtxt);max-width:480px;margin:0 auto 2.2rem;line-height:1.7;
+}
+.hero-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--rose),var(--mauve));
+  color:#fff;font-family:var(--fp);font-size:.8rem;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:.82rem 2.5rem;border-radius:30px;text-decoration:none;
+  transition:transform .25s,box-shadow .3s,filter .2s;
+  box-shadow:0 4px 20px var(--shmd);animation:fadeUp 1s .3s ease both;
+}
+.hero-btn:hover{filter:brightness(1.08);transform:translateY(-3px);box-shadow:0 10px 34px var(--shlg);}
+
+/* Polaroids */
+.hero-polaroids{
+  display:flex;gap:1rem;margin-top:3.5rem;flex-wrap:wrap;
+  justify-content:center;position:relative;z-index:2;animation:fadeUp 1s .5s ease both;
+}
+.hero-pol{
+  background:var(--ivory);padding:10px 10px 30px;border-radius:2px;
+  box-shadow:0 6px 28px var(--shmd),0 2px 8px rgba(0,0,0,.07);
+  transform:rotate(var(--r));transition:transform .4s,box-shadow .4s;
+  position:relative;animation:fadeUp .9s var(--delay,.2s) ease both;
+}
+.hero-pol:hover{transform:rotate(0deg) scale(1.07) translateY(-5px);box-shadow:0 16px 46px var(--shlg);z-index:5;}
+.pol-photo{width:110px;height:98px;border-radius:1px;}
+.pol-cap{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-family:var(--fs);font-size:.78rem;color:var(--mtxt);}
+.hero-pol::before{
+  content:'';position:absolute;top:-8px;left:50%;
+  transform:translateX(-50%) rotate(-2deg);
+  width:36px;height:14px;background:var(--tape);border-radius:2px;
+}
+.hero-pol:nth-child(even)::before{background:var(--tape-pink);transform:translateX(-50%) rotate(3deg);}
+
+/* Aesthetic sticker row */
+.sticker-row{
+  display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;
+  margin-top:1.8rem;position:relative;z-index:2;
+  animation:fadeUp 1s .8s ease both;
+}
+.sticker{
+  background:var(--ivory);border:1.5px solid var(--blush);
+  color:var(--mtxt);font-family:var(--fp);font-size:.7rem;
+  font-weight:500;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;
+  box-shadow:0 2px 8px var(--shsm);
+  transition:transform .25s,background .25s,box-shadow .25s;
+}
+.sticker:hover{background:var(--blush);transform:translateY(-2px) rotate(-2deg);box-shadow:0 6px 16px var(--shmd);}
+
+/* ═══════════════════════════════════════════════════════
+   QUOTE BANNER
+═══════════════════════════════════════════════════════ */
+.quote-banner{
+  background:var(--beige);padding:2rem 2rem;
+  display:flex;align-items:center;justify-content:center;gap:1.2rem;
+  border-top:1px solid var(--blush);border-bottom:1px solid var(--blush);
+}
+.quote-banner p{
+  font-family:var(--fe);font-style:italic;
+  font-size:clamp(.9rem,2vw,1.1rem);color:var(--mtxt);
+  text-align:center;max-width:600px;line-height:1.7;
+}
+.qb-leaf{font-size:1.3rem;opacity:.55;flex-shrink:0;animation:float 5s ease-in-out infinite;}
+.qb-leaf:last-child{animation-delay:-2.5s;}
+
+/* ═══════════════════════════════════════════════════════
+   FLOATERS & SPARKLES
+═══════════════════════════════════════════════════════ */
+.floater{position:absolute;pointer-events:none;animation:float 6s ease-in-out infinite;z-index:2;font-size:1.4rem;}
+.floater:nth-child(even){animation-duration:7.5s;animation-delay:-3s;}
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  33%{transform:translateY(-18px) rotate(6deg);}
+  66%{transform:translateY(-7px) rotate(-3deg);}
+}
+.deco-abs{position:absolute;pointer-events:none;}
+.sparkle{
+  position:absolute;width:8px;height:8px;pointer-events:none;
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  background:var(--gold);
+  animation:twinkle var(--dur,3.5s) var(--del,0s) ease-in-out infinite;z-index:2;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.15;transform:scale(.8) rotate(0deg);}
+  50%{opacity:.88;transform:scale(1.28) rotate(25deg);}
+}
+
+/* ═══════════════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════════════ */
+.section{padding:6rem 2rem;background:var(--bg1);position:relative;transition:background .4s;}
+.section-alt{background:var(--bg2);}
+.torn-edge-top{
+  height:28px;position:absolute;top:-1px;left:0;right:0;
+  background-repeat:repeat-x;background-size:120px 28px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M0,14 Q15,0 30,14 Q45,28 60,14 Q75,0 90,14 Q105,28 120,14 L120,28 L0,28Z' fill='%23fdf8f0'/%3E%3C/svg%3E");
+}
+.torn-edge-top.alt{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M0,14 Q15,0 30,14 Q45,28 60,14 Q75,0 90,14 Q105,28 120,14 L120,28 L0,28Z' fill='%23f5ede0'/%3E%3C/svg%3E");}
+body.dark-mode .torn-edge-top{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M0,14 Q15,0 30,14 Q45,28 60,14 Q75,0 90,14 Q105,28 120,14 L120,28 L0,28Z' fill='%231c1410'/%3E%3C/svg%3E");}
+body.dark-mode .torn-edge-top.alt{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 28'%3E%3Cpath d='M0,14 Q15,0 30,14 Q45,28 60,14 Q75,0 90,14 Q105,28 120,14 L120,28 L0,28Z' fill='%23241a12'/%3E%3C/svg%3E");}
+
+/* Corner flowers per section */
+.sec-corner-flower{
+  position:absolute;pointer-events:none;font-size:1.4rem;opacity:.3;
+  animation:float 7s ease-in-out infinite;
+}
+
+.section-header{text-align:center;margin-bottom:3.5rem;}
+.section-tag{font-family:var(--fp);font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--ltxt);display:block;margin-bottom:.4rem;}
+.section-title{font-family:var(--fs);font-size:clamp(2.2rem,5vw,3.5rem);color:var(--mauve);margin-bottom:.5rem;}
+.section-rule{width:60px;height:2px;margin:.75rem auto;background:linear-gradient(90deg,transparent,var(--rose),transparent);}
+.section-sub{font-family:var(--fe);font-style:italic;color:var(--ltxt);font-size:.95rem;}
+
+/* ═══════════════════════════════════════════════════════
+   FILM STRIP
+═══════════════════════════════════════════════════════ */
+.film-strip{
+  display:flex;align-items:center;max-width:700px;margin:0 auto 3rem;
+  background:var(--dtxt);border-radius:4px;overflow:hidden;padding:6px 0;
+}
+.film-reel{
+  flex-shrink:0;width:18px;height:66px;
+  background:repeating-linear-gradient(to bottom,var(--dtxt) 0,var(--dtxt) 6px,var(--ivory) 6px,var(--ivory) 10px);
+  opacity:.9;
+}
+.film-frames{display:flex;gap:3px;flex:1;padding:0 3px;overflow:hidden;}
+.film-cell{
+  flex:1;min-width:60px;height:52px;border-radius:2px;
+  transition:transform .3s,filter .3s;cursor:pointer;position:relative;
+}
+.film-cell:hover{transform:scale(1.05);filter:brightness(1.1);}
+.film-cell::before,.film-cell::after{
+  content:'';position:absolute;width:7px;height:9px;background:rgba(0,0,0,.5);border-radius:1px;
+}
+.film-cell::before{top:-6px;left:8px;}
+.film-cell::after{top:-6px;right:8px;}
+
+/* ═══════════════════════════════════════════════════════
+   MASONRY
+═══════════════════════════════════════════════════════ */
+.masonry-grid{columns:4 100px;column-gap:1.2rem;max-width:1200px;margin:0 auto;}
+.masonry-item{
+  break-inside:avoid;margin-bottom:1.5rem;position:relative;
+  border-radius:6px;overflow:hidden;cursor:pointer;
+  box-shadow:0 4px 20px var(--shsm);
+  transition:transform .4s,box-shadow .4s;
+}
+.masonry-item:hover{transform:scale(1.03) translateY(-4px);box-shadow:0 12px 40px var(--shlg);z-index:3;}
+.masonry-photo{width:100%;display:block;border-radius:6px;transition:transform .5s;}
+.masonry-item:hover .masonry-photo{transform:scale(1.06);}
+.masonry-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(74,55,40,.82));
+  padding:2rem .9rem .7rem;
+  transform:translateY(100%);transition:transform .35s;
+}
+.masonry-item:hover .masonry-caption{transform:translateY(0);}
+.masonry-caption span{font-family:var(--fs);font-size:.9rem;color:rgba(255,255,255,.92);}
+@media(max-width:600px){.masonry-grid{columns:2 160px;}}
+
+/* ═══════════════════════════════════════════════════════
+   MEMORIES
+═══════════════════════════════════════════════════════ */
+.memories-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:2.5rem;max-width:1200px;margin:0 auto;
+}
+.memory-card{
+  background:var(--ivory);padding:14px 14px 70px;border-radius:2px;
+  box-shadow:0 6px 28px var(--shmd),0 2px 8px rgba(0,0,0,.06);
+  transform:rotate(var(--rot,0deg));
+  transition:transform .4s,box-shadow .4s;cursor:pointer;position:relative;
+}
+.memory-card:hover{transform:rotate(0deg) scale(1.04) translateY(-6px);box-shadow:0 16px 48px var(--shlg);z-index:5;}
+.memory-img-wrap{position:relative;overflow:hidden;border-radius:1px;}
+.memory-photo{width:100%;height:200px;object-fit:cover;display:block;transition:transform .5s;}
+.memory-card:hover .memory-photo{transform:scale(1.05);}
+.memory-overlay{
+  position:absolute;inset:0;background:rgba(184,133,138,.84);
+  display:flex;align-items:center;justify-content:center;padding:1.2rem;
+  opacity:0;transition:opacity .35s;
+}
+.memory-card:hover .memory-overlay{opacity:1;}
+.memory-note{font-family:var(--fe);font-style:italic;font-size:.88rem;color:#fff;text-align:center;line-height:1.6;}
+.memory-label{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:var(--fs);font-size:.92rem;color:var(--mtxt);}
+.memory-date{position:absolute;bottom:28px;right:14px;font-family:var(--fp);font-size:.65rem;letter-spacing:1px;color:var(--ltxt);}
+.memory-card::before{
+  content:'';position:absolute;top:-9px;left:50%;
+  transform:translateX(-50%) rotate(-2deg);
+  width:44px;height:16px;background:var(--tape);border-radius:2px;
+}
+.memory-card:nth-child(even)::before{background:var(--tape-pink);transform:translateX(-50%) rotate(3deg);}
+.corner-mount{position:absolute;width:13px;height:13px;background:var(--tan);opacity:.55;border-radius:1px;}
+.corner-mount.tl{top:7px;left:7px;transform:rotate(-45deg);}
+.corner-mount.tr{top:7px;right:7px;transform:rotate(45deg);}
+.corner-mount.bl{bottom:38px;left:7px;transform:rotate(45deg);}
+.corner-mount.br{bottom:38px;right:7px;transform:rotate(-45deg);}
+
+/* Handwritten banner */
+.handwritten-banner{
+  max-width:680px;margin:3rem auto 0;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:1.4rem 2rem;
+  background:var(--ivory);border-radius:8px;
+  border:1px dashed var(--rose);
+  box-shadow:0 4px 18px var(--shsm);
+}
+.handwritten-banner p{
+  font-family:var(--fs);font-size:1.2rem;color:var(--mtxt);
+  text-align:center;flex:1;
+}
+.hwb-line{flex:1;max-width:40px;height:1px;background:var(--rose);opacity:.5;}
+
+/* ═══════════════════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════════════════ */
+.timeline-wrap{max-width:860px;margin:0 auto;position:relative;padding-bottom:2rem;}
+.timeline-spine{
+  position:absolute;left:50%;transform:translateX(-50%);
+  top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--blush),var(--rose),var(--blush));border-radius:1px;
+}
+.timeline-spine.gold-spine{background:linear-gradient(to bottom,var(--gold-lt),var(--gold),var(--gold-lt));}
+.tl-item{display:flex;gap:2rem;align-items:flex-start;margin-bottom:3.5rem;position:relative;}
+.tl-item.right{flex-direction:row-reverse;}
+.tl-card{
+  flex:1;background:var(--ivory);padding:14px 14px 36px;border-radius:2px;
+  box-shadow:0 4px 24px var(--shmd);position:relative;
+  transition:transform .35s,box-shadow .35s;
+}
+.tl-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px var(--shlg);}
+.tl-card.right-card{text-align:right;}
+.tl-card.right-card .tl-date-tag{left:auto;right:14px;}
+.tl-photo{width:100%;height:200px;display:block;border-radius:1px;margin-bottom:10px;background-size:cover;background-position:center;}
+.graduation-photo{height:520px!important;border-radius:10px;}
+.tl-caption{font-family:var(--fe);font-style:italic;font-size:.86rem;color:var(--mtxt);line-height:1.55;}
+.tl-date-tag{position:absolute;bottom:10px;left:14px;font-family:var(--fs);font-size:.82rem;color:var(--ltxt);}
+.tl-card::before{
+  content:'';position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  width:40px;height:14px;background:var(--tape);border-radius:2px;
+}
+.tl-card:nth-child(even)::before{background:var(--tape-pink);}
+.tl-dot{
+  flex:0 0 16px;align-self:center;width:16px;height:16px;
+  border-radius:50%;background:var(--rose);border:3px solid var(--ivory);
+  box-shadow:0 0 0 3px var(--rose);position:relative;z-index:1;flex-shrink:0;
+}
+.tl-spacer{flex:1;}
+@media(max-width:640px){
+  .timeline-spine{left:18px;transform:none;}
+  .tl-item,.tl-item.right{flex-direction:column;padding-left:44px;}
+  .tl-dot{position:absolute;left:11px;top:16px;}
+  .tl-spacer{display:none;}
+}
+
+/* ═══════════════════════════════════════════════════════
+   GRADUATION SECTION
+═══════════════════════════════════════════════════════ */
+.grad-section{overflow:hidden;}
+.grad-title{color:var(--gold)!important;}
+body.dark-mode .grad-title{color:var(--gold-lt)!important;}
+.gold-tag{color:var(--gold)!important;}
+body.dark-mode .gold-tag{color:var(--gold-lt)!important;}
+.gold-rule{background:linear-gradient(90deg,transparent,var(--gold),transparent)!important;}
+
+.grad-gold-sparkle{
+  position:absolute;font-size:1.2rem;color:var(--gold);pointer-events:none;
+  animation:twinkle 4s ease-in-out infinite;opacity:.7;
+}
+.grad-cap-float{
+  position:absolute;font-size:2.4rem;opacity:.2;pointer-events:none;
+  animation:float 10s ease-in-out infinite;
+}
+
+/* Confetti */
+.confetti-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.confetti-piece{
+  position:absolute;top:-20px;
+  width:8px;height:8px;border-radius:1px;
+  animation:confettiFall linear infinite;opacity:.7;
+}
+@keyframes confettiFall{
+  0%{transform:translateY(0) rotate(0deg) translateX(0);opacity:.8;}
+  100%{transform:translateY(110vh) rotate(720deg) translateX(var(--cf-x,30px));opacity:0;}
+}
+
+/* Ribbon banner */
+.grad-ribbon{
+  max-width:860px;margin:0 auto 3rem;
+  display:flex;align-items:center;
+  background:linear-gradient(135deg,var(--gold-lt),var(--gold),var(--gold-lt));
+  border-radius:4px;overflow:hidden;
+  box-shadow:0 4px 20px rgba(212,168,83,.35);
+  position:relative;z-index:2;
+}
+.ribbon-left,.ribbon-right{
+  width:28px;flex-shrink:0;background:var(--brown);
+  align-self:stretch;opacity:.6;
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+}
+.ribbon-center{
+  flex:1;text-align:center;
+  padding:.75rem 1rem;
+  font-family:var(--fs);font-size:1.3rem;color:#fff;
+  text-shadow:0 1px 4px rgba(0,0,0,.25);
+  letter-spacing:.5px;
+}
+
+#graduation .tl-card{
+  background:linear-gradient(180deg,var(--ivory),rgba(242,217,208,.35));
+}
+#graduation .tl-card::before{background:rgba(212,168,83,.45);}
+#graduation .tl-dot{
+  background:var(--gold);
+  box-shadow:0 0 0 3px var(--gold),0 0 12px rgba(212,168,83,.5);
+}
+
+/* ═══════════════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════════════ */
+.about-inner{max-width:640px;margin:0 auto;text-align:center;}
+.about-avatar-wrap{position:relative;width:96px;height:96px;margin:0 auto 1.5rem;}
+.about-avatar{
+  width:96px;height:96px;border-radius:50%;background:var(--blush);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;border:4px solid var(--ivory);
+  box-shadow:0 4px 24px var(--shmd);position:relative;z-index:1;
+}
+.about-avatar-ring{
+  position:absolute;inset:-8px;border-radius:50%;z-index:0;
+  border:2px dashed var(--rose);opacity:.45;
+  animation:spin 15s linear infinite;
+}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.about-name{font-family:var(--fs);font-size:1.8rem;color:var(--mauve);margin-bottom:1rem;}
+.about-text{font-family:var(--fe);font-style:italic;font-size:1rem;color:var(--mtxt);line-height:1.85;margin-bottom:1.8rem;}
+.about-tags{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:2rem;}
+.tag{
+  background:var(--blush);color:var(--mtxt);font-family:var(--fp);font-size:.72rem;
+  font-weight:500;letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;transition:background .25s,transform .2s;
+}
+.tag:hover{background:var(--rose);color:#fff;transform:translateY(-2px);}
+.about-note-card{
+  background:var(--ivory);border:1px dashed var(--tan);border-radius:8px;
+  padding:1.4rem 2rem;box-shadow:0 4px 18px var(--shsm);position:relative;
+}
+.about-note-card::before{
+  content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);
+  width:44px;height:14px;background:var(--tape);border-radius:2px;
+}
+.about-note-card p{font-family:var(--fs);font-size:1.15rem;color:var(--mtxt);margin-bottom:.4rem;}
+.about-note-card span{font-family:var(--fp);font-size:.72rem;color:var(--ltxt);letter-spacing:.5px;}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+footer{background:var(--bg2);padding:3rem 2rem 0;text-align:center;border-top:1px solid var(--blush);}
+.footer-petal-row{display:flex;gap:.8rem;justify-content:center;margin-bottom:1.2rem;font-size:1.1rem;opacity:.5;}
+.fp-gold{color:var(--gold);opacity:1;}
+.footer-quote{font-family:var(--fe);font-style:italic;font-size:1.25rem;color:var(--mauve);margin-bottom:.5rem;}
+.footer-sub{font-family:var(--fp);font-size:.72rem;letter-spacing:1.5px;color:var(--ltxt);text-transform:uppercase;margin-bottom:2rem;}
+.footer-stripe{
+  height:8px;margin-top:1rem;
+  background:repeating-linear-gradient(90deg,var(--rose) 0,var(--rose) 20px,var(--blush) 20px,var(--blush) 40px,var(--sage) 40px,var(--sage) 60px,var(--blush) 60px,var(--blush) 80px);
+  opacity:.45;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHTBOX
+═══════════════════════════════════════════════════════ */
+.lightbox{
+  position:fixed;inset:0;z-index:2000;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lb-backdrop{position:absolute;inset:0;background:rgba(28,15,10,.92);cursor:pointer;}
+.lb-container{
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:1rem;max-width:100vw;padding:0 1rem;
+}
+.lb-photo-wrap{text-align:center;}
+.lb-polaroid-frame{
+  background:#fff;padding:14px 14px 42px;
+  box-shadow:0 24px 80px rgba(0,0,0,.7);
+  display:inline-block;
+}
+.lb-photo{
+  width:clamp(200px,58vw,680px);
+  height:clamp(160px,50vh,500px);
+  background-size:cover;background-position:center;
+  transition:background .35s;
+}
+.lb-caption{margin-top:1rem;font-family:var(--fs);font-size:1.15rem;color:rgba(255,255,255,.88);}
+.lb-counter{font-family:var(--fp);font-size:.7rem;letter-spacing:2px;color:rgba(255,255,255,.4);margin-top:.3rem;}
+.lb-close{
+  position:fixed;top:1.2rem;right:1.5rem;
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);
+  color:#fff;font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,transform .2s;z-index:2;
+}
+.lb-close:hover{background:rgba(255,255,255,.3);transform:scale(1.1);}
+.lb-nav{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+  color:#fff;font-size:2.5rem;width:48px;height:64px;border-radius:6px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .25s,transform .2s;flex-shrink:0;line-height:1;padding-bottom:4px;
+}
+.lb-nav:hover{background:rgba(255,255,255,.25);transform:scale(1.05);}
+.lb-nav:disabled{opacity:.2;cursor:default;transform:none;}
+
+/* ═══════════════════════════════════════════════════════
+   MUSIC BAR
+═══════════════════════════════════════════════════════ */
+.music-bar{
+  position:fixed;bottom:1.4rem;left:50%;transform:translateX(-50%);z-index:900;
+  background:var(--nav-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--blush);border-radius:40px;
+  padding:.45rem 1.1rem;display:flex;align-items:center;gap:.7rem;
+  box-shadow:0 4px 20px var(--shmd);white-space:nowrap;transition:background .4s;
+}
+.music-track{font-family:var(--fp);font-size:.72rem;letter-spacing:.8px;color:var(--mtxt);}
+.music-eq{display:flex;align-items:flex-end;gap:2px;height:14px;}
+.eq-bar{width:3px;border-radius:2px;background:var(--rose);animation:eq var(--spd,.8s) ease infinite alternate;}
+.eq-bar:nth-child(2){--spd:.6s;animation-delay:.15s;}
+.eq-bar:nth-child(3){--spd:1s;animation-delay:.3s;}
+.eq-bar:nth-child(4){--spd:.75s;animation-delay:.1s;}
+.eq-paused .eq-bar{animation:none;height:4px;}
+@keyframes eq{from{height:3px;}to{height:14px;}}
+
+/* ═══════════════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s,transform .75s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-32px);transition:opacity .7s,transform .7s;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(32px);transition:opacity .7s,transform .7s;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════ */
+@media(max-width:480px){
+  .hero-polaroids{gap:.6rem;}
+  .hero-pol{padding:8px 8px 24px;}
+  .pol-photo{width:100px;height:72px;}
+  .memories-grid{grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .sticker-row{gap:.4rem;}
+  .sticker{font-size:.62rem;padding:4px 10px;}
+}
+/* ── 1. CURSOR PETAL TRAIL ── */
+.cursor-petal {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  font-size: 1rem;
+  animation: petalTrailFade 1s ease forwards;
+  transform-origin: center;
+}
+@keyframes petalTrailFade {
+  0%   { opacity: .9; transform: scale(1) rotate(0deg) translateY(0); }
+  100% { opacity: 0;  transform: scale(.4) rotate(120deg) translateY(-40px); }
+}
+
+/* ── 2. FILM DEVELOPING ANIMATION ── */
+.masonry-photo, .memory-photo, .tl-photo, .graduation-photo {
+  filter: blur(0) grayscale(0) brightness(1);
+  transition: filter 0s;
+}
+.film-developing {
+  filter: blur(0px) grayscale(0) brightness(1.20) !important;
+  animation: filmDevelop 1.8s ease forwards !important;
+}
+@keyframes filmDevelop {
+  0%   { filter: blur(8px) grayscale(1)    brightness(1.5)  contrast(.7); }
+  40%  { filter: blur(3px) grayscale(.6)   brightness(1.2)  contrast(.85); }
+  70%  { filter: blur(1px) grayscale(.2)   brightness(1.05) contrast(.97); }
+  100% { filter: blur(0)   grayscale(0)    brightness(1)    contrast(1); }
+}
+
+/* ── 3. SHUFFLE GALLERY BUTTON ── */
+.shuffle-btn {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 auto 2rem;
+  padding: .65rem 1.8rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-family: var(--fp);
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 18px var(--shmd);
+  transition: transform .25s, box-shadow .3s, filter .2s;
+}
+.shuffle-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 10px 30px var(--shlg); }
+.shuffle-btn .shuffle-icon { display: inline-block; animation: none; }
+.shuffle-btn.shuffling .shuffle-icon { animation: spin .5s ease; }
+
+/* ── 4. PHOTO TILT ON HOVER ── */
+.masonry-item, .memory-card, .hero-pol, .tl-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ── 5. DOUBLE-TAP HEART ── */
+.heart-float {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  font-size: 1.6rem;
+  animation: heartRise 1.2s ease forwards;
+}
+@keyframes heartRise {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  60%  { opacity: .9; transform: translateY(-60px) scale(1.3); }
+  100% { opacity: 0; transform: translateY(-100px) scale(.8); }
+}
+.heart-counter {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(184,133,138,.9);
+  color: #fff;
+  font-family: var(--fp);
+  font-size: .65rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 4;
+  letter-spacing: .5px;
+}
+.heart-counter.visible { opacity: 1; }
+
+/* ── 6. HIDDEN EASTER EGG ── */
+.easter-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 99997;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .4s;
+}
+.easter-burst.show { opacity: 1; }
+.easter-burst-text {
+  font-family: var(--fs);
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: var(--gold);
+  text-shadow: 0 2px 20px rgba(212,168,83,.6);
+  animation: easterPop .6s ease both;
+  text-align: center;
+}
+@keyframes easterPop {
+  0%   { transform: scale(.5) rotate(-10deg); opacity: 0; }
+  70%  { transform: scale(1.15) rotate(3deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.footer-flower-hint { cursor: pointer; user-select: none; transition: transform .2s; }
+.footer-flower-hint:hover { transform: scale(1.3) rotate(15deg); }
+.footer-flower-hint.clicked { animation: flowerClick .3s ease; }
+@keyframes flowerClick {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.5) rotate(20deg); }
+}
+
+/* ── 7. STICKY NOTES ── */
+.sticky-note {
+  position: absolute;
+  z-index: 10;
+  width: 120px;
+  padding: 8px 10px 10px;
+  border-radius: 2px;
+  font-family: var(--fs);
+  font-size: .75rem;
+  line-height: 1.5;
+  color: #4a3728;
+  cursor: grab;
+  box-shadow: 3px 4px 14px rgba(74,55,40,.25);
+  user-select: none;
+  transition: box-shadow .2s, transform .2s;
+}
+.sticky-note:active { cursor: grabbing; box-shadow: 6px 8px 24px rgba(74,55,40,.35); }
+.sticky-note:hover  { transform: rotate(0deg) scale(1.05); z-index: 20; }
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 12px;
+  background: rgba(212,168,83,.5);
+  border-radius: 2px;
+}
+
+/* ── 8. TODAY IN MEMORIES ── */
+.today-memory-card {
+  position: relative;
+  z-index: 2;
+  margin: 1.5rem auto 0;
+  max-width: 320px;
+  background: var(--ivory);
+  padding: 14px 14px 44px;
+  border-radius: 2px;
+  box-shadow: 0 8px 32px var(--shmd);
+  transform: rotate(-1.5deg);
+  transition: transform .4s, box-shadow .4s;
+  animation: fadeUp .9s .6s ease both;
+}
+.today-memory-card:hover { transform: rotate(0deg) scale(1.04); box-shadow: 0 16px 48px var(--shlg); }
+.today-memory-card::before {
+  content: '';
+  position: absolute; top: -9px; left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 44px; height: 16px;
+  background: var(--tape); border-radius: 2px;
+}
+.today-memory-photo {
+  width: 100%; height: 180px;
+  background-size: cover; background-position: center;
+  border-radius: 1px;
+}
+.today-memory-label {
+  position: absolute; bottom: 10px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--fs); font-size: .9rem; color: var(--mtxt);
+}
+.today-memory-badge {
+  position: absolute; top: -14px; right: 10px;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; font-family: var(--fp);
+  font-size: .6rem; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+  box-shadow: 0 2px 10px var(--shmd);
+}
+
+/* ── 10. TYPEWRITER HERO ── */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: var(--mauve);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink .7s step-end infinite;
+}
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+
+
+/* ── 12. MOOD BOARD SECTION ── */
+#moodboard {
+  padding: 6rem 2rem;
+  background: var(--bg1);
+  position: relative;
+  overflow: hidden;
+  min-height: 700px;
+}
+.moodboard-canvas {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 620px;
+}
+.mood-item {
+  position: absolute;
+  background: var(--ivory);
+  padding: 10px 10px 32px;
+  border-radius: 2px;
+  box-shadow: 0 6px 28px var(--shmd);
+  cursor: pointer;
+  transition: transform .35s, box-shadow .35s, z-index 0s;
+}
+.mood-item:hover {
+  z-index: 10;
+  box-shadow: 0 16px 48px var(--shlg);
+}
+.mood-item::before {
+  content: '';
+  position: absolute; top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 36px; height: 13px;
+  background: var(--tape); border-radius: 2px;
+}
+.mood-item:nth-child(even)::before { background: var(--tape-pink); }
+.mood-photo {
+  display: block;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1px;
+}
+.mood-cap {
+  position: absolute; bottom: 8px; left: 0; right: 0;
+  text-align: center;
+  font-family: var(--fs); font-size: .8rem; color: var(--mtxt);
+}
+@media(max-width:700px) {
+  .moodboard-canvas { height: auto; display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; }
+  .mood-item { position: static !important; transform: none !important; }
+}
+/* ═══════════════════════════════════════════════════════
+   PICTURE ALBUM — ENHANCEMENTS PACK 2
+   Paste inside your existing <style> block
+═══════════════════════════════════════════════════════ */
+
+/* ── 1. NIGHT SKY HERO ── */
+.night-sky-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a0a2e 40%, #2d1245 70%, #1c0a18 100%);
+  opacity: 0; pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+.night-sky-overlay.active { opacity: 1; }
+.star-field {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+}
+.star {
+  position: absolute; border-radius: 50%;
+  background: #fff;
+  animation: starTwinkle var(--dur, 3s) var(--del, 0s) ease-in-out infinite;
+}
+@keyframes starTwinkle {
+  0%,100% { opacity: var(--min-op, .2); transform: scale(1); }
+  50%      { opacity: 1; transform: scale(1.4); }
+}
+.shooting-star {
+  position: absolute; height: 1px; background: linear-gradient(90deg, #fff, transparent);
+  animation: shootingStar 4s linear infinite;
+  opacity: 0;
+}
+@keyframes shootingStar {
+  0%   { opacity: 0; transform: translateX(0) translateY(0) rotate(-30deg); width: 0; }
+  10%  { opacity: 1; width: 120px; }
+  30%  { opacity: 0; transform: translateX(200px) translateY(80px) rotate(-30deg); width: 0; }
+  100% { opacity: 0; }
+}
+.moon-display {
+  position: absolute; top: 18%; right: 8%; z-index: 3;
+  width: 70px; height: 70px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #fffde7, #f9a825);
+  box-shadow: 0 0 40px rgba(249,168,37,.5), 0 0 80px rgba(249,168,37,.2);
+  animation: moonGlow 4s ease-in-out infinite;
+  font-size: .6rem; display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 6px; color: rgba(120,80,0,.7); font-family: var(--fp);
+  letter-spacing: .5px; pointer-events: none;
+}
+@keyframes moonGlow {
+  0%,100% { box-shadow: 0 0 40px rgba(249,168,37,.5), 0 0 80px rgba(249,168,37,.2); }
+  50%      { box-shadow: 0 0 60px rgba(249,168,37,.7), 0 0 120px rgba(249,168,37,.3); }
+}
+.night-title-glow { text-shadow: 0 0 30px rgba(200,150,255,.8), 0 0 60px rgba(150,100,255,.4) !important; }
+.night-subtitle-glow { color: rgba(200,180,255,.85) !important; }
+.night-btn-night {
+  background: linear-gradient(135deg, #6a3fa0, #c2185b) !important;
+  box-shadow: 0 4px 20px rgba(106,63,160,.5) !important;
+}
+
+/* ── 2. FILM ROLL HORIZONTAL SCROLL ── */
+#filmroll {
+  padding: 5rem 0;
+  background: #111;
+  position: relative;
+  overflow: hidden;
+}
+#filmroll .section-header { padding: 0 2rem; }
+#filmroll .section-title  { color: #f0e0d0 !important; }
+#filmroll .section-tag    { color: #a08070 !important; }
+#filmroll .section-rule   { background: linear-gradient(90deg,transparent,#d4a5a0,transparent) !important; }
+#filmroll .section-sub    { color: #907060 !important; }
+.filmroll-track-wrap {
+  position: relative; overflow: hidden; cursor: grab; user-select: none;
+  padding: 2rem 0;
+}
+.filmroll-track-wrap:active { cursor: grabbing; }
+.filmroll-strip {
+  display: flex; align-items: center;
+  gap: 0; width: max-content;
+  background: #1a1a1a;
+  border-top: 18px solid #111;
+  border-bottom: 18px solid #111;
+  padding: 12px 0;
+  transition: transform .1s ease;
+}
+.filmroll-sprockets-top,
+.filmroll-sprockets-bottom {
+  position: absolute; left: 0; right: 0; height: 18px;
+  display: flex; align-items: center; gap: 28px; padding: 0 14px;
+  pointer-events: none; z-index: 2;
+}
+.filmroll-sprockets-top { top: 2rem; }
+.filmroll-sprockets-bottom { bottom: 2rem; }
+.sprocket {
+  width: 14px; height: 10px;
+  background: #333; border-radius: 2px;
+  border: 1.5px solid #444; flex-shrink: 0;
+}
+.film-frame {
+  position: relative; flex-shrink: 0;
+  width: 220px; height: 180px;
+  margin: 0 4px;
+  overflow: hidden;
+  transition: transform .3s, filter .3s;
+  cursor: pointer;
+}
+.film-frame:hover { transform: scale(1.04) translateY(-4px); filter: brightness(1.1); z-index: 2; }
+.film-frame-photo {
+  width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  transition: transform .5s;
+}
+.film-frame:hover .film-frame-photo { transform: scale(1.06); }
+.film-frame-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+  padding: 1.5rem .6rem .4rem;
+  font-family: var(--fs); font-size: .78rem; color: rgba(255,255,255,.9);
+  text-align: center;
+}
+.film-frame-num {
+  position: absolute; top: 4px; left: 6px;
+  font-family: var(--fp); font-size: .55rem; letter-spacing: 1px;
+  color: rgba(255,255,255,.35);
+}
+.filmroll-hint {
+  text-align: center; margin-top: 1.2rem;
+  font-family: var(--fp); font-size: .7rem; letter-spacing: 2px;
+  color: #604848; text-transform: uppercase;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+
+/* ── 3. PHOTO BOOTH STRIP ── */
+#photobooth {
+  padding: 5rem 2rem;
+  background: var(--bg2);
+  position: relative;
+}
+.photobooth-inner {
+  max-width: 860px; margin: 0 auto;
+  display: flex; gap: 3rem; align-items: flex-start;
+  flex-wrap: wrap; justify-content: center;
+}
+.booth-strip-wrap {
+  flex-shrink: 0; position: relative;
+  filter: drop-shadow(0 12px 40px rgba(74,55,40,.35));
+}
+.booth-strip {
+  width: 200px;
+  background: #fff;
+  padding: 10px 10px 18px;
+  border-radius: 4px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.booth-frame {
+  width: 180px; height: 140px;
+  background-size: cover; background-position: center;
+  border-radius: 2px; position: relative; overflow: hidden;
+}
+.booth-frame-num {
+  position: absolute; top: 3px; left: 5px;
+  font-family: var(--fp); font-size: .5rem;
+  color: rgba(255,255,255,.5); letter-spacing: 1px;
+}
+.booth-footer {
+  text-align: center; margin-top: 4px;
+  font-family: var(--fs); font-size: .82rem; color: #888;
+}
+.booth-date {
+  font-family: var(--fp); font-size: .6rem;
+  letter-spacing: 1px; color: #aaa; text-align: center;
+}
+.booth-controls { flex: 1; min-width: 240px; }
+.booth-controls h3 {
+  font-family: var(--fs); font-size: 1.6rem; color: var(--mauve); margin-bottom: 1rem;
+}
+.booth-color-row {
+  display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 1.2rem;
+}
+.booth-color-btn {
+  width: 32px; height: 32px; border-radius: 50%; border: 3px solid transparent;
+  cursor: pointer; transition: transform .2s, border-color .2s;
+}
+.booth-color-btn.active { border-color: var(--mauve); transform: scale(1.15); }
+.booth-photo-select {
+  display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.2rem;
+}
+.booth-photo-select label {
+  font-family: var(--fp); font-size: .72rem;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--ltxt);
+}
+.booth-photo-select select {
+  padding: .5rem .8rem; border: 1.5px solid var(--blush);
+  border-radius: 8px; background: var(--cream); color: var(--dtxt);
+  font-family: var(--fp); font-size: .82rem; outline: none;
+}
+.booth-download-btn {
+  width: 100%; padding: .75rem; margin-top: .5rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; border: none; border-radius: 30px;
+  font-family: var(--fp); font-size: .78rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; box-shadow: 0 4px 18px var(--shmd);
+  transition: transform .2s, filter .2s;
+}
+.booth-download-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+/* ── 4. CASSETTE TAPE PLAYER ── */
+.cassette-bar {
+  position: fixed; bottom: 1.4rem; left: 50%;
+  transform: translateX(-50%); z-index: 900;
+  background: #1a1008; border-radius: 12px;
+  padding: .6rem 1.2rem .6rem .8rem;
+  display: flex; align-items: center; gap: .8rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+  border: 1.5px solid #3a2810;
+  min-width: 280px;
+}
+.cassette-body {
+  position: relative; width: 90px; height: 52px; flex-shrink: 0;
+}
+.cassette-svg { width: 100%; height: 100%; }
+.reel { transform-origin: center; }
+.reel.spinning { animation: reelSpin 1.2s linear infinite; }
+.reel.spinning.slow { animation-duration: 2.4s; }
+@keyframes reelSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+.reel-l { transform-origin: 28px 26px; }
+.reel-r { transform-origin: 62px 26px; }
+.cassette-info { flex: 1; }
+.cassette-track-name {
+  font-family: var(--fp); font-size: .7rem; letter-spacing: 1px;
+  color: #d4a882; text-transform: uppercase; white-space: nowrap;
+  overflow: hidden; text-overflow: ellipsis; max-width: 120px;
+}
+.cassette-label {
+  font-family: var(--fs); font-size: .65rem; color: #806040;
+  margin-top: 1px;
+}
+.cassette-controls { display: flex; gap: .4rem; align-items: center; }
+.cass-btn {
+  background: #2a1808; border: 1px solid #4a2a10;
+  color: #d4a882; width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: .75rem; transition: background .2s, transform .15s;
+}
+.cass-btn:hover { background: #3a2010; transform: scale(1.1); }
+.cass-btn.active { background: #c4783a; color: #fff; }
+.cassette-tape-line {
+  position: absolute; bottom: 12px; left: 14px; right: 14px;
+  height: 3px; background: #2a1808;
+  display: flex; align-items: center; overflow: hidden;
+}
+.cassette-tape-move {
+  height: 1px; background: #5a3820;
+  width: 60%; animation: none;
+  position: absolute; top: 1px; left: -100%;
+}
+.cassette-tape-move.playing { animation: tapeMove 1.5s linear infinite; }
+@keyframes tapeMove { from{left:-100%;} to{left:100%;} }
+
+/* ── 5. SCRAPBOOK DOODLES ── */
+.doodle-layer {
+  position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden;
+}
+.doodle-svg {
+  position: absolute; opacity: 0;
+  animation: doodleDraw var(--dur,1.2s) var(--del,0s) ease forwards;
+}
+@keyframes doodleDraw {
+  to { opacity: 1; stroke-dashoffset: 0; }
+}
+.doodle-path {
+  fill: none;
+  stroke-dasharray: var(--len, 300);
+  stroke-dashoffset: var(--len, 300);
+  animation: doodleStroke var(--dur,1.2s) var(--del,0s) ease forwards;
+}
+@keyframes doodleStroke { to { stroke-dashoffset: 0; } }
+
+/* ── 6. ANIMATED LETTER ── */
+#letter-section {
+  padding: 5rem 2rem;
+  background: var(--bg1); position: relative; overflow: hidden;
+}
+.letter-envelope-wrap {
+  max-width: 540px; margin: 0 auto; text-align: center;
+}
+.letter-envelope {
+  position: relative; margin: 0 auto 2rem;
+  width: 320px; height: 200px; cursor: pointer;
+  transition: transform .3s;
+}
+.letter-envelope:hover { transform: scale(1.03); }
+.env-body {
+  position: absolute; inset: 0;
+  background: linear-gradient(160deg, #f5ede0, #fdf8f0);
+  border: 2px solid var(--blush); border-radius: 4px;
+  box-shadow: 0 8px 32px var(--shmd);
+}
+.env-flap {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 100px;
+  background: linear-gradient(160deg, #f2d9d0, #e8c8c0);
+  clip-path: polygon(0 0, 50% 65%, 100% 0);
+  transform-origin: top center;
+  transition: transform .6s ease;
+  border-radius: 4px 4px 0 0;
+}
+.letter-envelope.open .env-flap {
+  transform: rotateX(180deg);
+}
+.env-seal {
+  position: absolute; top: 58px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: radial-gradient(circle, var(--mauve), var(--brown));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; box-shadow: 0 2px 10px var(--shmd);
+  transition: opacity .3s;
+  z-index: 2;
+}
+.letter-envelope.open .env-seal { opacity: 0; }
+.env-label {
+  position: absolute; bottom: 20px; left: 0; right: 0;
+  text-align: center; font-family: var(--fe); font-style: italic;
+  font-size: .9rem; color: var(--ltxt);
+}
+.env-stamp {
+  position: absolute; top: 12px; right: 14px;
+  width: 36px; height: 44px;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  border: 2px solid #fff; font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 8px var(--shsm);
+}
+.letter-paper {
+  max-width: 480px; margin: 0 auto;
+  background: #fffef8;
+  border: 1px solid var(--blush);
+  border-radius: 2px;
+  padding: 2.5rem 2.8rem;
+  box-shadow: 0 8px 32px var(--shmd);
+  position: relative;
+  display: none;
+  font-family: var(--fs); font-size: 1rem; color: var(--mtxt);
+  line-height: 2.2;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 34px, rgba(184,133,138,.15) 34px, rgba(184,133,138,.15) 35px
+  );
+}
+.letter-paper.visible { display: block; animation: letterUnfold .6s ease both; }
+@keyframes letterUnfold {
+  from { opacity: 0; transform: translateY(-20px) scaleY(.95); }
+  to   { opacity: 1; transform: none; }
+}
+.letter-line {
+  display: block; opacity: 0; transform: translateX(-8px);
+  transition: opacity .4s, transform .4s;
+}
+.letter-line.revealed { opacity: 1; transform: none; }
+.letter-wax-seal {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, var(--mauve), var(--brown));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin: 1.5rem auto 0;
+  box-shadow: 0 4px 16px var(--shmd);
+  animation: sealSpin .8s ease both;
+}
+@keyframes sealSpin {
+  from { transform: rotate(-180deg) scale(0); opacity: 0; }
+  to   { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+.letter-open-btn {
+  display: inline-block; margin-top: .8rem;
+  padding: .6rem 2rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; border: none; border-radius: 30px;
+  font-family: var(--fp); font-size: .75rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; box-shadow: 0 4px 16px var(--shmd);
+  transition: transform .2s, filter .2s;
+}
+.letter-open-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+/* ── 7. VINTAGE POSTCARD GENERATOR ── */
+#postcard-section {
+  padding: 5rem 2rem;
+  background: var(--bg2); position: relative;
+}
+.postcard-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; gap: 2.5rem; flex-wrap: wrap; align-items: flex-start; justify-content: center;
+}
+.postcard-preview {
+  flex-shrink: 0; width: 380px;
+}
+.postcard-front, .postcard-back {
+  width: 380px; background: #fffef8;
+  border: 1px solid var(--blush);
+  box-shadow: 0 8px 32px var(--shmd);
+  border-radius: 3px; overflow: hidden;
+}
+.postcard-front { height: 240px; position: relative; }
+.postcard-front-photo {
+  width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  position: relative;
+}
+.postcard-front-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(transparent 50%, rgba(0,0,0,.5));
+}
+.postcard-front-title {
+  position: absolute; bottom: 10px; left: 14px;
+  font-family: var(--fs); font-size: 1.5rem; color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+.postcard-stamp-area {
+  position: absolute; top: 8px; right: 8px;
+  width: 44px; height: 54px;
+  background: var(--ivory); border: 2px solid var(--blush);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.1);
+}
+.postcard-back { padding: 12px 14px; }
+.postcard-back-divider {
+  display: flex; gap: 12px; height: 100%;
+}
+.postcard-back-left {
+  flex: 1; border-right: 1px dashed var(--blush);
+  padding-right: 12px; padding-top: 4px;
+}
+.postcard-back-message {
+  font-family: var(--fs); font-size: .88rem; color: var(--mtxt);
+  line-height: 1.9; min-height: 80px;
+  background-image: repeating-linear-gradient(
+    transparent, transparent 28px, rgba(184,133,138,.2) 28px, rgba(184,133,138,.2) 29px
+  );
+}
+.postcard-back-right {
+  width: 120px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; padding-top: 4px;
+}
+.postcard-address-lines { display: flex; flex-direction: column; gap: 6px; }
+.postcard-address-line {
+  height: 1px; background: var(--blush); border-radius: 1px;
+}
+.postcard-stamp-back {
+  width: 44px; height: 54px; align-self: flex-end;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  border: 2px solid #fff; font-size: 1.4rem;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+}
+.postcard-controls { flex: 1; min-width: 240px; }
+.postcard-controls h3 {
+  font-family: var(--fs); font-size: 1.6rem; color: var(--mauve); margin-bottom: 1.2rem;
+}
+.pc-field { margin-bottom: 1rem; }
+.pc-field label {
+  display: block; font-family: var(--fp); font-size: .68rem;
+  letter-spacing: 1.5px; text-transform: uppercase; color: var(--ltxt); margin-bottom: .35rem;
+}
+.pc-field input, .pc-field textarea, .pc-field select {
+  width: 100%; padding: .55rem .9rem;
+  border: 1.5px solid var(--blush); border-radius: 8px;
+  background: var(--cream); color: var(--dtxt);
+  font-family: var(--fp); font-size: .85rem; outline: none;
+  transition: border-color .2s;
+  resize: none;
+}
+.pc-field input:focus, .pc-field textarea:focus, .pc-field select:focus {
+  border-color: var(--rose);
+}
+.pc-stamps { display: flex; gap: .5rem; flex-wrap: wrap; }
+.pc-stamp-opt {
+  width: 36px; height: 44px;
+  border: 2px solid var(--blush); border-radius: 2px;
+  background: var(--ivory); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; transition: border-color .2s, transform .2s;
+}
+.pc-stamp-opt.active { border-color: var(--mauve); transform: scale(1.12); }
+.pc-download-btn {
+  width: 100%; padding: .75rem; margin-top: .5rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; border: none; border-radius: 30px;
+  font-family: var(--fp); font-size: .78rem; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  cursor: pointer; box-shadow: 0 4px 18px var(--shmd);
+  transition: transform .2s, filter .2s;
+}
+.pc-download-btn:hover { filter: brightness(1.08); transform: translateY(-2px); }
+
+/* ── 8. HANDWRITING GUESTBOOK ── */
+#guestbook {
+  padding: 5rem 2rem;
+  background: var(--bg1); position: relative;
+}
+.guestbook-inner { max-width: 860px; margin: 0 auto; }
+.guestbook-canvas-wrap {
+  background: var(--ivory); border: 1.5px solid var(--blush);
+  border-radius: 8px; overflow: hidden;
+  box-shadow: 0 4px 20px var(--shsm); margin-bottom: 1rem;
+}
+.guestbook-canvas { display: block; cursor: crosshair; touch-action: none; }
+.guestbook-tools {
+  display: flex; gap: .6rem; align-items: center;
+  flex-wrap: wrap; margin-bottom: 1.2rem;
+}
+.gb-color {
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 2.5px solid transparent; cursor: pointer;
+  transition: transform .2s, border-color .2s;
+}
+.gb-color.active { border-color: var(--dtxt); transform: scale(1.2); }
+.gb-size {
+  padding: .3rem .7rem; border: 1.5px solid var(--blush);
+  border-radius: 20px; background: var(--cream); color: var(--dtxt);
+  font-family: var(--fp); font-size: .72rem; cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+.gb-size.active { background: var(--blush); border-color: var(--rose); }
+.gb-btn {
+  padding: .35rem 1rem; border: 1.5px solid var(--blush);
+  border-radius: 20px; background: var(--cream); color: var(--dtxt);
+  font-family: var(--fp); font-size: .72rem; cursor: pointer;
+  transition: background .2s;
+}
+.gb-btn:hover { background: var(--blush); }
+.gb-submit-btn {
+  padding: .5rem 1.5rem;
+  background: linear-gradient(135deg, var(--rose), var(--mauve));
+  color: #fff; border: none; border-radius: 30px;
+  font-family: var(--fp); font-size: .75rem; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; box-shadow: 0 4px 14px var(--shsm);
+  transition: transform .2s, filter .2s; margin-left: auto;
+}
+.gb-submit-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.guestbook-wall {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.2rem; margin-top: 2rem;
+}
+.gb-entry {
+  background: var(--ivory); border-radius: 4px;
+  padding: 10px 10px 28px;
+  box-shadow: 0 4px 18px var(--shsm);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+}
+.gb-entry:hover { transform: rotate(0deg) scale(1.04); box-shadow: 0 10px 30px var(--shmd); z-index: 3; }
+.gb-entry::before {
+  content: ''; position: absolute; top: -8px; left: 50%;
+  transform: translateX(-50%);
+  width: 32px; height: 12px;
+  background: var(--tape); border-radius: 2px;
+}
+.gb-entry canvas { display: block; width: 100%; border-radius: 2px; }
+.gb-entry-name {
+  position: absolute; bottom: 8px; left: 0; right: 0;
+  text-align: center; font-family: var(--fs); font-size: .75rem; color: var(--ltxt);
+}
+.gb-name-input {
+  width: 100%; padding: .45rem .8rem; margin-bottom: .8rem;
+  border: 1.5px solid var(--blush); border-radius: 8px;
+  background: var(--cream); color: var(--dtxt);
+  font-family: var(--fp); font-size: .85rem; outline: none;
+}
+
+/* ── 9. MIRROR SELFIE WALL ── */
+#mirror-section {
+  padding: 5rem 2rem;
+  background: #1a1018; position: relative; overflow: hidden;
+}
+#mirror-section .section-title { color: #f0e0d0 !important; }
+#mirror-section .section-tag   { color: #907080 !important; }
+#mirror-section .section-rule  { background: linear-gradient(90deg,transparent,#d4a5a0,transparent) !important; }
+#mirror-section .section-sub   { color: #706070 !important; }
+.mirror-frame {
+  max-width: 700px; margin: 0 auto; position: relative;
+}
+.mirror-lights {
+  position: absolute; top: -20px; left: -20px; right: -20px;
+  display: flex; justify-content: space-between; pointer-events: none;
+}
+.mirror-bulb {
+  width: 18px; height: 18px; border-radius: 50%;
+  background: radial-gradient(circle, #fff9c4, #f9a825);
+  box-shadow: 0 0 12px #f9a825, 0 0 24px rgba(249,168,37,.4);
+  animation: bulbFlicker var(--dur,3s) var(--del,0s) ease-in-out infinite;
+}
+@keyframes bulbFlicker {
+  0%,100% { opacity:1; box-shadow:0 0 12px #f9a825,0 0 24px rgba(249,168,37,.4); }
+  92%     { opacity:.85; box-shadow:0 0 6px #f9a825; }
+  94%     { opacity:1; }
+}
+.mirror-glass {
+  background: linear-gradient(160deg, #1a1018, #2a1828, #1a1018);
+  border: 12px solid #2a1820;
+  border-radius: 180px 180px 140px 140px;
+  overflow: hidden; position: relative;
+  box-shadow:
+    inset 0 0 40px rgba(255,200,220,.06),
+    inset 0 0 80px rgba(0,0,0,.5),
+    0 0 0 4px #3a2030,
+    0 20px 60px rgba(0,0,0,.7);
+  padding: 2rem 1.5rem;
+}
+.mirror-reflection {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg,
+    rgba(255,255,255,.06) 0%, transparent 40%,
+    transparent 60%, rgba(255,255,255,.03) 100%);
+  pointer-events: none; z-index: 5; border-radius: inherit;
+}
+.mirror-photos-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  position: relative; z-index: 2;
+}
+.mirror-photo-item {
+  position: relative; overflow: hidden; border-radius: 4px;
+  cursor: pointer; transition: transform .3s, filter .3s;
+}
+.mirror-photo-item:hover { transform: scale(1.04); filter: brightness(1.12); z-index: 3; }
+.mirror-photo-img {
+  width: 100%; height: 140px; display: block;
+  background-size: cover; background-position: center;
+}
+.mirror-photo-reflection {
+  width: 100%; height: 40px;
+  background-size: cover; background-position: center bottom;
+  transform: scaleY(-1);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.4), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.4), transparent);
+  filter: blur(1px) brightness(.5);
+}
+.mirror-vanity-text {
+  text-align: center; margin-top: 1.5rem;
+  font-family: var(--fs); font-size: 1.1rem; color: rgba(200,160,180,.6);
+  letter-spacing: 2px;
+}
+.mirror-side-lights {
+  position: absolute; top: 0; bottom: 0;
+  display: flex; flex-direction: column;
+  justify-content: space-around; pointer-events: none;
+}
+.mirror-side-lights.left  { left: -28px; }
+.mirror-side-lights.right { right: -28px; }
+</style>
+<script>
+    /* ═══════════════════════════════════════════════════════
+   MY PICTURE ALBUM — script.js  (enhanced edition)
+═══════════════════════════════════════════════════════ */
+
+/* ── PASSWORD ── */
+const ALBUM_PASSWORD = 'album';
+const SESSION_KEY    = 'album_unlocked';
+
+/* ── PHOTO DATA (keep your original data below) ── */
+const galleryPhotos = [
+  { bg:'url("GD.jpg")',height:190, caption:'intettt' },
+  { bg:'url("pic3.jpg")',height:500, caption:'' },
+  { bg:'url("cutie.jpg")',height:400, caption:'golden hour' },
+  { bg:'url("cutie smile.jpg")',height:260, caption:'rainy day reads' },
+  { bg:'url("pic2.jpg")',height:180, caption:'tea time' },
+  { bg:'url("ma intettt.jpg")',height:400, caption:'forest light' },
+  { bg:'url("wacky2.jpg")',height:400, caption:'pressed petals' },
+  { bg:'url("wacky1.jpg")',height:290, caption:'autumn leaves' },
+  { bg:'url("pic7.jpg")',height:290, caption:'first frost' },
+  { bg:'url("pic8.jpg")',height:270, caption:'sunday morning' },
+  { bg:'url("graduation.jpg")', height:360, caption:'wildflowers' },
+  { bg:'url("brad.jpg")',height:290, caption:'misty morning1' },
+  { bg:'linear-gradient(135deg,#b8858a,#a8b89a)',height:240, caption:'misty morning2' },
+  { bg:'linear-gradient(135deg,#b8858a,#a8b89a)',height:240, caption:'misty morning3' },
+  { bg:'linear-gradient(135deg,#b8858a,#a8b89a)',height:400, caption:'misty morning4' },
+  { bg:'linear-gradient(135deg,#b8858a,#a8b89a)',height:300, caption:'misty morning5' },
+];
+
+const memoryPhotos = [
+  { bg:'url("pic2.jpg")',                         label:'Morning Blossoms', note:'"She picked flowers before breakfast, petals still wet with dew."',                                 date:'March 30, 2026',  rot:'-2.5deg' },
+  { bg:'url("pic1.jpg")', label:'Forest Walk',      note:'"We got lost on purpose, following light between the trees."',             date:'March 30, 2026', rot:'1.8deg'  },
+  { bg:'url("pic7.jpg")', label:'Golden Afternoon', note:'"The tea was cold by the time we stopped talking."',                       date:'March 12, 2026',  rot:'-1.2deg' },
+  { bg:'url("pic8.jpg")', label:'Rainy Sunday',     note:'"Books and blankets — the perfect combination."',                          date:'March 12, 2026', rot:'2.1deg'  },
+  { bg:'linear-gradient(135deg,#d4a5a0,#b8858a)', label:'First Snow',       note:'"We tried to catch snowflakes on our tongues."',                           date:'Dec 3, 2023',  rot:'-1.7deg' },
+  { bg:'linear-gradient(135deg,#c4a882,#a8b89a)', label:'Spring Again',     note:'"Everything blooms eventually. Including us."',                            date:'Mar 19, 2024', rot:'1.1deg'  },
+];
+
+const timelineData = [
+  { year:'March 30,2026',   label:'The Beginning',         caption:'"Some meetings change everything. This was one of those."',                                          photo:'GD.jpg',           side:'left'  },
+  { year:'March 30, 2026',     label:'',       caption:'"We drove four hours for a view that lasted five minutes. Worth every second."',                     photo:'pic1.jpg',         side:'right' },
+  { year:'March 12 2026',  label:'',              caption:'"♡"',                                                                                                photo:'pic8.jpg',   side:'left'  },
+  { year:'Winter 2026',     label:'First Snow Together',   caption:'"She said she hated cold. She stayed outside until her nose turned pink."',                          bg:'linear-gradient(135deg,#b8858a,#f2d9d0)', side:'right' },
+  { year:'Spring 2026',     label:'Bloom Again',           caption:'"Every year the flowers come back. So do we."',                                                      bg:'linear-gradient(135deg,#d4a5a0,#a8b89a)', side:'left'  },
+  { year:'Summer 2026',     label:'Beach Days',            caption:'"Salt in the air, sand in everything, no complaints whatsoever."',                                   bg:'linear-gradient(135deg,#c4a882,#d4a5a0)', side:'right' },
+];
+
+const graduationData = [
+  { year:'March 2026', label:'Before the Ceremony', caption:'"One last picture before everything changed."',             photo:'wacky1.jpg',    side:'left'  },
+  { year:'March 2026', label:'Walking the Stage',   caption:'"The moment we waited for finally arrived."',               photo:'graduation.jpg', side:'right' },
+  { year:'March 2026', label:'With Friends',        caption:'"Smiles, laughter, and memories we will never forget."',    photo:'ma intettt.jpg', side:'left'  },
+  { year:'March 2026', label:'Family Picture',      caption:'"The proudest people standing beside me."',                 photo:'cutie.jpg',side:'right' },
+  { year:'March 2026', label:'Cap Toss',            caption:'"A perfect ending to an unforgettable chapter."',           photo:'beautifulsmile.jpg',side:'left'  },
+];
+
+/* ════════════════════════════════════════════
+   PETAL RAIN
+════════════════════════════════════════════ */
+function createPetalRain(containerId, count = 14) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const petals = ['🌸','🌷','🍃','✿','🌺'];
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.className = 'petal';
+    el.textContent = petals[Math.floor(Math.random() * petals.length)];
+    const dur  = 6 + Math.random() * 10;
+    const del  = -Math.random() * dur;
+    const left = Math.random() * 100;
+    const drift = (Math.random() - 0.5) * 80;
+    el.style.cssText = `left:${left}%;animation-duration:${dur}s;animation-delay:${del}s;--drift:${drift}px;`;
+    container.appendChild(el);
+  }
+}
+
+/* ════════════════════════════════════════════
+   CONFETTI
+════════════════════════════════════════════ */
+function createConfetti(containerId, count = 30) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const colors = ['#f2d9d0','#d4a5a0','#b8858a','#c4a882','#a8b89a','#d4a853','#f0cc7a','#fff'];
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    const dur  = 6 + Math.random() * 8;
+    const del  = -Math.random() * dur;
+    const left = Math.random() * 100;
+    const cfx  = (Math.random() - 0.5) * 100;
+    const rot  = Math.random() * 20 - 10;
+    const bg   = colors[Math.floor(Math.random() * colors.length)];
+    el.style.cssText = `
+      left:${left}%;
+      background:${bg};
+      animation-duration:${dur}s;
+      animation-delay:${del}s;
+      --cf-x:${cfx}px;
+      transform:rotate(${rot}deg);
+    `;
+    container.appendChild(el);
+  }
+}
+
+/* ════════════════════════════════════════════
+   PASSWORD GATE
+════════════════════════════════════════════ */
+function initPasswordGate() {
+  const gate    = document.getElementById('passwordGate');
+  const album   = document.getElementById('albumWrapper');
+  const input   = document.getElementById('gateInput');
+  const btn     = document.getElementById('gateBtn');
+  const errorEl = document.getElementById('gateError');
+  const eyeBtn  = document.getElementById('gateEye');
+
+  if (sessionStorage.getItem(SESSION_KEY) === '1') { unlock(false); return; }
+
+  setTimeout(() => input && input.focus(), 500);
+
+  eyeBtn && eyeBtn.addEventListener('click', () => {
+    const show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    eyeBtn.textContent = show ? '🙈' : '👁';
+    input.focus();
+  });
+
+  btn && btn.addEventListener('click', tryUnlock);
+  input && input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+  input && input.addEventListener('input',   () => { errorEl.textContent = ''; input.classList.remove('shake'); });
+
+  function tryUnlock() {
+    const val = input.value.trim();
+    if (!val) { errorEl.textContent = 'Please enter the password.'; return; }
+    if (val === ALBUM_PASSWORD) { unlock(true); }
+    else {
+      errorEl.textContent = 'Wrong password. Try again ♡';
+      input.value = '';
+      input.classList.add('shake');
+      setTimeout(() => input.classList.remove('shake'), 450);
+      input.focus();
+    }
+  }
+
+  function unlock(animate) {
+    sessionStorage.setItem(SESSION_KEY, '1');
+    album.style.display = 'block';
+    if (animate) {
+      gate.classList.add('unlocking');
+      setTimeout(() => gate.style.display = 'none', 700);
+    } else {
+      gate.style.display = 'none';
+    }
+  }
+}
+
+/* ════════════════════════════════════════════
+   BUILD GALLERY
+════════════════════════════════════════════ */
+function buildGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+  galleryPhotos.forEach((p, i) => {
+    const item = document.createElement('div');
+    item.className = 'masonry-item reveal';
+    item.style.transitionDelay = (i * 0.06) + 's';
+    const ph = document.createElement('div');
+    ph.className = 'masonry-photo';
+    ph.style.cssText = `height:${p.height}px;background:${p.bg};background-size:cover;`;
+    const cap = document.createElement('div');
+    cap.className = 'masonry-caption';
+    cap.innerHTML = `<span>${p.caption}</span>`;
+    item.appendChild(ph); item.appendChild(cap);
+    item.addEventListener('click', () => openLightbox(i, 'gallery'));
+    grid.appendChild(item);
+  });
+}
+
+/* ════════════════════════════════════════════
+   BUILD MEMORIES
+════════════════════════════════════════════ */
+function buildMemories() {
+  const grid = document.getElementById('memoriesGrid');
+  if (!grid) return;
+  memoryPhotos.forEach((m, i) => {
+    const card = document.createElement('div');
+    card.className = 'memory-card reveal';
+    card.style.setProperty('--rot', m.rot);
+    card.style.transitionDelay = (i * 0.1) + 's';
+    card.innerHTML = `
+      <div class="corner-mount tl"></div><div class="corner-mount tr"></div>
+      <div class="memory-img-wrap">
+        <div class="memory-photo" style="background:${m.bg};background-size:cover;"></div>
+        <div class="memory-overlay"><p class="memory-note">${m.note}</p></div>
+      </div>
+      <p class="memory-label">${m.label}</p>
+      <span class="memory-date">${m.date}</span>
+      <div class="corner-mount bl"></div><div class="corner-mount br"></div>`;
+    card.addEventListener('click', () => openLightbox(i, 'memories'));
+    grid.appendChild(card);
+  });
+}
+
+/* ════════════════════════════════════════════
+   BUILD TIMELINE
+════════════════════════════════════════════ */
+function buildTimeline() {
+  const wrap = document.getElementById('timelineWrap');
+  if (!wrap) return;
+  timelineData.forEach((entry, i) => {
+    const isRight = entry.side === 'right';
+    const item = document.createElement('div');
+    item.className = `tl-item ${isRight ? 'right' : ''} ${isRight ? 'reveal-right' : 'reveal-left'}`;
+    item.style.transitionDelay = (i * 0.12) + 's';
+    const bgStyle = entry.photo
+      ? `background-image:url('${entry.photo}');background-size:cover;background-position:center;`
+      : `background:${entry.bg};`;
+    item.innerHTML = `
+      <div class="tl-card ${isRight ? 'right-card' : ''}">
+        <div class="tl-photo" style="${bgStyle}"></div>
+        <p class="tl-caption">${entry.caption}</p>
+        <span class="tl-date-tag">${entry.year} — ${entry.label}</span>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-spacer"></div>`;
+    wrap.appendChild(item);
+  });
+}
+
+/* ════════════════════════════════════════════
+   BUILD GRADUATION TIMELINE
+════════════════════════════════════════════ */
+function buildGraduationTimeline() {
+  const wrap = document.getElementById('graduationTimeline');
+  if (!wrap) return;
+  graduationData.forEach((entry, i) => {
+    const isRight = entry.side === 'right';
+    const item = document.createElement('div');
+    item.className = `tl-item ${isRight ? 'right' : ''} ${isRight ? 'reveal-right' : 'reveal-left'}`;
+    item.style.transitionDelay = (i * 0.12) + 's';
+    item.innerHTML = `
+      <div class="tl-card ${isRight ? 'right-card' : ''}">
+        <div class="tl-photo graduation-photo"
+             style="background-image:url('${entry.photo}');background-size:cover;background-position:center;"></div>
+        <p class="tl-caption">${entry.caption}</p>
+        <span class="tl-date-tag">${entry.year} — ${entry.label}</span>
+      </div>
+      <div class="tl-dot"></div>
+      <div class="tl-spacer"></div>`;
+    wrap.appendChild(item);
+  });
+}
+
+/* ════════════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════════════ */
+let lbCurrentIndex = 0;
+let lbCurrentSet   = [];
+
+function openLightbox(index, source) {
+  lbCurrentSet   = source === 'memories' ? memoryPhotos : galleryPhotos;
+  lbCurrentIndex = index;
+  renderLightbox();
+  const lb = document.getElementById('lightbox');
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+}
+function renderLightbox() {
+  const p     = lbCurrentSet[lbCurrentIndex];
+  const img   = document.getElementById('lbPhoto');
+  const cap   = document.getElementById('lbCaption');
+  const cnt   = document.getElementById('lbCounter');
+  const prev  = document.getElementById('lbPrev');
+  const next  = document.getElementById('lbNext');
+ img.style.backgroundImage = p.bg;
+img.style.backgroundSize = 'cover';
+img.style.backgroundPosition = 'center';
+  cap.textContent = p.caption || p.label || '';
+  cnt.textContent = `${lbCurrentIndex + 1} / ${lbCurrentSet.length}`;
+  prev.disabled   = lbCurrentIndex === 0;
+  next.disabled   = lbCurrentIndex === lbCurrentSet.length - 1;
+}
+function lbNavigate(dir) {
+  const n = lbCurrentIndex + dir;
+  if (n < 0 || n >= lbCurrentSet.length) return;
+  lbCurrentIndex = n;
+  renderLightbox();
+}
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbBackdrop').addEventListener('click', closeLightbox);
+document.getElementById('lbPrev').addEventListener('click', () => lbNavigate(-1));
+document.getElementById('lbNext').addEventListener('click', () => lbNavigate(1));
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  lbNavigate(-1);
+  if (e.key === 'ArrowRight') lbNavigate(1);
+});
+let lbTouchX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => { lbTouchX = e.touches[0].clientX; }, {passive:true});
+document.getElementById('lightbox').addEventListener('touchend',   e => {
+  const d = lbTouchX - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 50) lbNavigate(d > 0 ? 1 : -1);
+}, {passive:true});
+
+/* ════════════════════════════════════════════
+   DARK MODE
+════════════════════════════════════════════ */
+function initDarkMode() {
+  const btn = document.getElementById('darkToggle');
+  let dark = localStorage.getItem('albumDark') === '1';
+  function apply() {
+    document.body.classList.toggle('dark-mode', dark);
+    if (btn) { btn.textContent = dark ? '☀' : '☾'; btn.classList.toggle('active', dark); }
+  }
+  apply();
+  btn && btn.addEventListener('click', () => { dark = !dark; localStorage.setItem('albumDark', dark ? '1' : '0'); apply(); });
+}
+
+/* ════════════════════════════════════════════
+   MUSIC — section-aware
+════════════════════════════════════════════ */
+function initMusic() {
+  const bgMusic    = document.getElementById('bgMusic');
+  const gradMusic  = document.getElementById('gradMusic');
+  const toggle     = document.getElementById('musicToggle');
+  const gradSec    = document.getElementById('graduation');
+  let   enabled    = false;
+
+  // Inject music bar
+  const bar = document.createElement('div');
+  bar.className = 'music-bar';
+  bar.innerHTML = `
+    <span style="font-size:1rem">♪</span>
+    <span class="music-track" id="musicTrack">album soundtrack</span>
+    <div class="music-eq eq-paused" id="musicEq">
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+      <div class="eq-bar"></div><div class="eq-bar"></div>
+    </div>`;
+  document.body.appendChild(bar);
+
+  function updateUI(playing, trackName) {
+    const eq = document.getElementById('musicEq');
+    const tr = document.getElementById('musicTrack');
+    if (tr) tr.textContent = trackName;
+    if (eq) eq.classList.toggle('eq-paused', !playing);
+    if (toggle) { toggle.textContent = playing ? '♫' : '♪'; toggle.classList.toggle('active', playing); }
+  }
+
+  function playCorrect() {
+    if (!enabled) return;
+    const rect = gradSec ? gradSec.getBoundingClientRect() : null;
+    const inGrad = rect && rect.top < window.innerHeight * .6 && rect.bottom > window.innerHeight * .4;
+    if (inGrad) {
+      bgMusic && bgMusic.pause();
+      if (gradMusic && gradMusic.paused) { gradMusic.currentTime = 0; gradMusic.play().catch(()=>{}); }
+      updateUI(true, 'graduation theme 🎓');
+    } else {
+      gradMusic && gradMusic.pause();
+      if (bgMusic && bgMusic.paused) { bgMusic.play().catch(()=>{}); }
+      updateUI(true, 'lo-fi morning vibes');
+    }
+  }
+
+  toggle && toggle.addEventListener('click', () => {
+    enabled = !enabled;
+    if (!enabled) {
+      bgMusic && bgMusic.pause();
+      gradMusic && gradMusic.pause();
+      updateUI(false, 'music paused');
+    } else { playCorrect(); }
+  });
+
+  window.addEventListener('scroll', playCorrect, {passive:true});
+}
+
+/* ════════════════════════════════════════════
+   NAV
+════════════════════════════════════════════ */
+function initNav() {
+  const navbar   = document.getElementById('navbar');
+  const toggle   = document.getElementById('navToggle');
+  const links    = document.getElementById('navLinks');
+  const anchors  = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  toggle.classList.remove('open');
+  links.classList.remove('open');
+}, {passive:true});
+
+  toggle && toggle.addEventListener('click', () => { toggle.classList.toggle('open'); links.classList.toggle('open'); });
+  anchors.forEach(a => a.addEventListener('click', () => { toggle.classList.remove('open'); links.classList.remove('open'); }));
+
+  function tick() {
+    navbar && navbar.classList.toggle('scrolled', window.scrollY > 20);
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+    anchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }
+  window.addEventListener('scroll', tick, {passive:true});
+  tick();
+}
+
+/* ════════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════════ */
+function initReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+  function observe() {
+    document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => io.observe(el));
+  }
+  observe();
+  return observe;
+}
+/* ══════════════════════════════════════════
+   1. CURSOR PETAL TRAIL
+══════════════════════════════════════════ */
+function initCursorPetalTrail() {
+  const petals = ['🌸','🌷','✿','🍃','✦','🌺'];
+  let lastX = 0, lastY = 0, throttle = false;
+
+  document.addEventListener('mousemove', e => {
+    if (throttle) return;
+    throttle = true;
+    setTimeout(() => throttle = false, 80);
+
+    const dx = Math.abs(e.clientX - lastX);
+    const dy = Math.abs(e.clientY - lastY);
+    if (dx < 8 && dy < 8) return;
+    lastX = e.clientX; lastY = e.clientY;
+
+    const el = document.createElement('span');
+    el.className = 'cursor-petal';
+    el.textContent = petals[Math.floor(Math.random() * petals.length)];
+    el.style.cssText = `
+      left: ${e.clientX + (Math.random() - .5) * 20}px;
+      top:  ${e.clientY + (Math.random() - .5) * 20}px;
+      font-size: ${.6 + Math.random() * .7}rem;
+      animation-duration: ${.7 + Math.random() * .6}s;
+    `;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1200);
+  });
+}
+
+/* ══════════════════════════════════════════
+   2. FILM DEVELOPING ANIMATION
+══════════════════════════════════════════ */
+function initFilmDeveloping() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const photo = entry.target;
+      if (photo.dataset.developed) return;
+      photo.dataset.developed = '1';
+      photo.classList.add('film-developing');
+      photo.addEventListener('animationend', () => {
+        photo.classList.remove('film-developing');
+      }, { once: true });
+      io.unobserve(photo);
+    });
+  }, { threshold: .1 });
+
+  function observePhotos() {
+    document.querySelectorAll('.masonry-photo, .memory-photo, .tl-photo, .graduation-photo')
+      .forEach(el => io.observe(el));
+  }
+  observePhotos();
+  // Re-observe after dynamic builds
+  setTimeout(observePhotos, 500);
+}
+
+/* ══════════════════════════════════════════
+   3. SHAKE TO SHUFFLE GALLERY
+══════════════════════════════════════════ */
+function initShuffleGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!grid) return;
+
+  // Insert shuffle button above the grid
+  const btn = document.createElement('button');
+  btn.className = 'shuffle-btn reveal';
+  btn.innerHTML = '<span class="shuffle-icon">🎲</span> Shuffle Gallery';
+  grid.parentNode.insertBefore(btn, grid);
+
+  btn.addEventListener('click', () => {
+    btn.classList.add('shuffling');
+    setTimeout(() => btn.classList.remove('shuffling'), 500);
+
+    const items = [...grid.querySelectorAll('.masonry-item')];
+    // Animate out
+    items.forEach((item, i) => {
+      item.style.transition = `opacity .25s ${i * 0.03}s, transform .25s ${i * 0.03}s`;
+      item.style.opacity = '0';
+      item.style.transform = 'scale(.85) rotate(' + ((Math.random() - .5) * 12) + 'deg)';
+    });
+
+    setTimeout(() => {
+      // Shuffle array
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        grid.appendChild(items[j]);
+        items.splice(j, 1);
+        items.splice(i, 0, items[j] || items[i]);
+      }
+      // Re-append in shuffled order
+      [...grid.children].sort(() => Math.random() - .5).forEach(el => grid.appendChild(el));
+
+      // Animate back in
+      [...grid.querySelectorAll('.masonry-item')].forEach((item, i) => {
+        item.style.transition = `opacity .35s ${i * 0.04}s, transform .35s ${i * 0.04}s`;
+        item.style.opacity = '1';
+        item.style.transform = '';
+      });
+    }, 320);
+  });
+}
+
+/* ══════════════════════════════════════════
+   4. PHOTO TILT ON HOVER (3D)
+══════════════════════════════════════════ */
+function initPhotoTilt() {
+  const selectors = '.masonry-item, .memory-card, .hero-pol';
+
+  document.addEventListener('mousemove', e => {
+    document.querySelectorAll(selectors).forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top  + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width  / 2);
+      const dy = (e.clientY - cy) / (rect.height / 2);
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 1.4) {
+        const tiltX = dy * -8;
+        const tiltY = dx *  8;
+        card.style.transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.03)`;
+        card.style.transition = 'transform .1s ease';
+        card.style.boxShadow  = `${-tiltY * 1.5}px ${tiltX * 1.5}px 30px var(--shlg)`;
+      }
+    });
+  });
+
+  document.addEventListener('mouseleave', () => {
+    document.querySelectorAll(selectors).forEach(card => {
+      card.style.transform  = '';
+      card.style.transition = 'transform .5s ease, box-shadow .5s ease';
+      card.style.boxShadow  = '';
+    });
+  });
+}
+
+/* ══════════════════════════════════════════
+   5. DOUBLE-TAP TO HEART
+══════════════════════════════════════════ */
+function initDoubleTapHeart() {
+  const heartCounts = {};
+  let lastTap = 0;
+  let lastTarget = null;
+
+  function spawnHeart(x, y) {
+    const el = document.createElement('span');
+    el.className = 'heart-float';
+    el.textContent = ['❤️','🩷','💕','💗'][Math.floor(Math.random() * 4)];
+    el.style.cssText = `left:${x}px;top:${y}px;font-size:${1.2 + Math.random() * .8}rem;`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1300);
+  }
+
+  function handleDoubleTap(e, card, index) {
+    const now = Date.now();
+    const isDouble = (now - lastTap < 380) && lastTarget === card;
+    lastTap    = now;
+    lastTarget = card;
+    if (!isDouble) return;
+
+    // Spawn hearts
+    const rect = card.getBoundingClientRect();
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        spawnHeart(
+          rect.left + Math.random() * rect.width,
+          rect.top  + Math.random() * rect.height
+        );
+      }, i * 120);
+    }
+
+    // Update counter
+    heartCounts[index] = (heartCounts[index] || 0) + 1;
+    let counter = card.querySelector('.heart-counter');
+    if (!counter) {
+      counter = document.createElement('div');
+      counter.className = 'heart-counter';
+      card.style.position = 'relative';
+      card.appendChild(counter);
+    }
+    counter.textContent = `❤ ${heartCounts[index]}`;
+    counter.classList.add('visible');
+  }
+
+  // Apply to gallery and memory cards
+  setTimeout(() => {
+    document.querySelectorAll('.masonry-item').forEach((card, i) => {
+      card.addEventListener('click', e => handleDoubleTap(e, card, 'g' + i));
+    });
+    document.querySelectorAll('.memory-card').forEach((card, i) => {
+      card.addEventListener('click', e => handleDoubleTap(e, card, 'm' + i));
+    });
+  }, 600);
+}
+
+/* ══════════════════════════════════════════
+   6. HIDDEN EASTER EGG
+══════════════════════════════════════════ */
+function initEasterEgg() {
+  const footer = document.querySelector('.footer-petal-row');
+  if (!footer) return;
+
+  // Mark first flower span as clickable
+  const flower = footer.querySelector('span:first-child');
+  if (flower) flower.classList.add('footer-flower-hint');
+
+  let clicks = 0;
+  let timer  = null;
+
+  footer.addEventListener('click', e => {
+    if (!e.target.classList.contains('footer-flower-hint') &&
+        !e.target.closest('.footer-flower-hint')) return;
+
+    clicks++;
+    e.target.classList.add('clicked');
+    setTimeout(() => e.target.classList.remove('clicked'), 350);
+
+    clearTimeout(timer);
+    timer = setTimeout(() => { clicks = 0; }, 2000);
+
+    if (clicks >= 5) {
+      clicks = 0;
+      triggerEasterEgg();
+    }
+  });
+
+  function triggerEasterEgg() {
+    // Extra confetti burst
+    createConfetti('confettiLayer', 60);
+
+    // Overlay message
+    const burst = document.createElement('div');
+    burst.className = 'easter-burst show';
+    burst.innerHTML = `<div class="easter-burst-text">🌸 you found the secret! 🌸<br><span style="font-size:60%;opacity:.7">made with love ♡</span></div>`;
+    document.body.appendChild(burst);
+
+    // Play a tiny chime via Web Audio
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      [523, 659, 784, 1047].forEach((freq, i) => {
+        const osc  = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.frequency.value = freq;
+        osc.type = 'sine';
+        gain.gain.setValueAtTime(0, ctx.currentTime + i * .12);
+        gain.gain.linearRampToValueAtTime(.18, ctx.currentTime + i * .12 + .05);
+        gain.gain.linearRampToValueAtTime(0,   ctx.currentTime + i * .12 + .4);
+        osc.start(ctx.currentTime + i * .12);
+        osc.stop(ctx.currentTime + i * .12 + .5);
+      });
+    } catch(e) {}
+
+    setTimeout(() => {
+      burst.style.transition = 'opacity .5s';
+      burst.style.opacity = '0';
+      setTimeout(() => burst.remove(), 600);
+    }, 3000);
+  }
+}
+
+/* ══════════════════════════════════════════
+   7. STICKY NOTES ON PHOTOS
+══════════════════════════════════════════ */
+function initStickyNotes() {
+  const notes = [
+    { text:'golden hour ✨',    color:'#fff9c4', rot:'-3deg',  top:'8px',  left:'10px'  },
+    { text:'forever ♡',        color:'#fce4ec', rot:'2deg',   top:'12px', right:'10px' },
+    { text:'my fave 🌸',       color:'#e8f5e9', rot:'-2deg',  top:'8px',  left:'8px'   },
+    { text:'miss this day',    color:'#fff3e0', rot:'3deg',   top:'10px', right:'8px'  },
+    { text:'too good 🍃',      color:'#f3e5f5', rot:'-1deg',  top:'6px',  left:'12px'  },
+  ];
+
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.memory-card');
+    cards.forEach((card, i) => {
+      if (!notes[i]) return;
+      const n   = notes[i];
+      const el  = document.createElement('div');
+      el.className = 'sticky-note';
+      el.textContent = n.text;
+      el.style.cssText = `
+        background:${n.color};
+        transform:rotate(${n.rot});
+        top:${n.top || 'auto'};
+        left:${n.left || 'auto'};
+        right:${n.right || 'auto'};
+        bottom:${n.bottom || 'auto'};
+      `;
+
+      // Make draggable
+      let dragging = false, ox = 0, oy = 0;
+      el.addEventListener('mousedown', e => {
+        dragging = true;
+        ox = e.clientX - el.getBoundingClientRect().left;
+        oy = e.clientY - el.getBoundingClientRect().top;
+        el.style.zIndex = '30';
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        const cardRect = card.getBoundingClientRect();
+        el.style.left   = (e.clientX - cardRect.left - ox) + 'px';
+        el.style.top    = (e.clientY - cardRect.top  - oy) + 'px';
+        el.style.right  = 'auto';
+        el.style.bottom = 'auto';
+      });
+      document.addEventListener('mouseup', () => { dragging = false; el.style.zIndex = '10'; });
+
+      card.style.position = 'relative';
+      card.appendChild(el);
+    });
+  }, 600);
+}
+
+/* ══════════════════════════════════════════
+   8. TODAY IN MEMORIES
+══════════════════════════════════════════ */
+function initTodayInMemories() {
+  const hero = document.querySelector('.hero-content');
+  if (!hero) return;
+
+ const pick = { bg:'url("GD.jpg")', caption:'March 30, 2026' };
+
+  const card = document.createElement('div');
+  card.className = 'today-memory-card';
+  card.innerHTML = `
+  <div class="today-memory-badge">✦ today's memory</div>
+  <div class="today-memory-photo" style="background-image:url('GD.jpg');background-size:cover;background-position:center;"></div>
+  <p class="today-memory-label">March 30, 2026</p>`;
+  hero.appendChild(card);
+}
+
+
+/* ══════════════════════════════════════════
+   10. TYPEWRITER HERO SUBTITLE
+══════════════════════════════════════════ */
+function initTypewriter() {
+  const subtitle = document.querySelector('.hero-subtitle');
+  if (!subtitle) return;
+
+  const text   = subtitle.textContent.trim();
+  const cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  subtitle.textContent = '';
+  subtitle.appendChild(cursor);
+
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      subtitle.insertBefore(document.createTextNode(text[i]), cursor);
+      i++;
+      setTimeout(type, 38 + Math.random() * 28);
+    } else {
+      // Blink then remove cursor after done
+      setTimeout(() => cursor.style.display = 'none', 2500);
+    }
+  }
+  setTimeout(type, 900);
+}
+
+/* ══════════════════════════════════════════
+   12. MOOD BOARD SECTION
+══════════════════════════════════════════ */
+function buildMoodboard() {
+  const canvas = document.getElementById('moodboardCanvas');
+  if (!canvas) return;
+
+  // Layout positions [top%, left%, width, height, rotation]
+  const layouts = [
+    ['3%',  '2%',   160, 140, '-4deg'],
+    ['5%',  '20%',  200, 180, '2deg' ],
+    ['2%',  '47%',  140, 120, '-2deg'],
+    ['3%',  '67%',  180, 160, '3deg' ],
+    ['3%',  '85%',  130, 115, '-3deg'],
+    ['48%', '0%',   170, 150, '2deg' ],
+    ['50%', '22%',  200, 180, '-3deg'],
+    ['45%', '49%',  150, 130, '4deg' ],
+    ['47%', '69%',  190, 170, '-2deg'],
+    ['46%', '87%',  140, 120, '3deg' ],
+  ];
+
+  const pool = [...galleryPhotos, ...memoryPhotos];
+
+  layouts.forEach((pos, i) => {
+    const item = pool[i % pool.length];
+    const el   = document.createElement('div');
+    el.className = 'mood-item reveal';
+    el.style.cssText = `
+      top:${pos[0]}; left:${pos[1]};
+      transform: rotate(${pos[4]});
+    `;
+    const photo = document.createElement('div');
+    photo.className = 'mood-photo film-developing';
+    photo.style.cssText = `
+      width:${pos[2]}px; height:${pos[3]}px;
+      background:${item.bg};
+      background-size:cover; background-position:center;
+    `;
+    const cap = document.createElement('span');
+    cap.className = 'mood-cap';
+    cap.textContent = item.caption || item.label || '♡';
+
+    el.appendChild(photo);
+    el.appendChild(cap);
+
+    // Tilt on hover
+    el.addEventListener('mousemove', e => {
+      const rect = el.getBoundingClientRect();
+      const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
+      const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
+      el.style.transform = `perspective(500px) rotateX(${dy * -8}deg) rotateY(${dx * 8}deg) scale(1.06) rotate(0deg)`;
+      el.style.zIndex    = '10';
+    });
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = `rotate(${pos[4]})`;
+      el.style.zIndex    = '';
+    });
+
+    canvas.appendChild(el);
+  });
+}
+/* ══════════════════════════════════════════
+   1. NIGHT SKY HERO
+   Activates automatically after 8 PM
+══════════════════════════════════════════ */
+function initNightSkyHero() {
+  const hero  = document.querySelector('.hero');
+  const title = document.querySelector('.hero-title');
+  const sub   = document.querySelector('.hero-subtitle');
+  const btn   = document.querySelector('.hero-btn');
+  if (!hero) return;
+
+  const hour = new Date().getHours();
+  const isNight = hour >= 20 || hour < 6;
+  if (!isNight) return;
+
+  // Night overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'night-sky-overlay';
+  hero.appendChild(overlay);
+
+  // Star field
+  const starField = document.createElement('div');
+  starField.className = 'star-field';
+  hero.appendChild(starField);
+
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = .5 + Math.random() * 2.5;
+    star.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      top:${Math.random() * 100}%;
+      --dur:${2 + Math.random() * 4}s;
+      --del:${-Math.random() * 4}s;
+      --min-op:${.1 + Math.random() * .3};
+    `;
+    starField.appendChild(star);
+  }
+
+  // Shooting stars
+  for (let i = 0; i < 3; i++) {
+    const ss = document.createElement('div');
+    ss.className = 'shooting-star';
+    ss.style.cssText = `
+      left:${10 + Math.random() * 60}%;
+      top:${5 + Math.random() * 30}%;
+      animation-delay:${i * 3 + Math.random() * 2}s;
+    `;
+    starField.appendChild(ss);
+  }
+
+  // Moon
+  const moon = document.createElement('div');
+  moon.className = 'moon-display';
+  moon.textContent = '🌙';
+  hero.appendChild(moon);
+
+  // Activate
+  setTimeout(() => overlay.classList.add('active'), 100);
+  if (title) title.classList.add('night-title-glow');
+  if (sub)   sub.classList.add('night-subtitle-glow');
+  if (btn)   btn.classList.add('night-btn-night');
+}
+
+/* ══════════════════════════════════════════
+   2. FILM ROLL HORIZONTAL SCROLL
+══════════════════════════════════════════ */
+function buildFilmRoll() {
+  const strip = document.getElementById('filmrollStrip');
+  const wrap  = document.getElementById('filmrollWrap');
+  const spTop = document.getElementById('filmSprocTop');
+  const spBot = document.getElementById('filmSprocBot');
+  if (!strip) return;
+
+  // Fill sprocket holes
+  [spTop, spBot].forEach(sp => {
+    if (!sp) return;
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement('div');
+      s.className = 'sprocket';
+      sp.appendChild(s);
+    }
+  });
+
+  galleryPhotos.forEach((p, i) => {
+    const frame = document.createElement('div');
+frame.className = 'film-frame';
+const urlMatch = p.bg.match(/url\(["']?([^"')]+)["']?\)/);
+frame.innerHTML = urlMatch ? `
+  <img
+    src="${urlMatch[1]}"
+    style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+    loading="lazy"
+  />
+  <div class="film-frame-cap">${p.caption || ''}</div>
+  <span class="film-frame-num">${String(i + 1).padStart(3,'0')}</span>
+` : `
+  <div class="film-frame-photo" style="background:${p.bg};background-size:cover;background-position:center;"></div>
+  <div class="film-frame-cap">${p.caption || ''}</div>
+  <span class="film-frame-num">${String(i + 1).padStart(3,'0')}</span>
+`;
+    frame.addEventListener('click', () => openLightbox(i, 'gallery'));
+    strip.appendChild(frame);
+  });
+
+  // Drag to scroll
+  let isDragging = false, startX = 0, scrollLeft = 0;
+  wrap.addEventListener('mousedown', e => {
+    isDragging = true; startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft;
+    wrap.style.cursor = 'grabbing';
+  });
+  document.addEventListener('mouseup', () => { isDragging = false; wrap.style.cursor = 'grab'; });
+  wrap.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - wrap.offsetLeft;
+    wrap.scrollLeft = scrollLeft - (x - startX) * 1.5;
+  });
+
+  // Touch support
+  let touchStartX = 0, touchScrollLeft = 0;
+  wrap.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX; touchScrollLeft = wrap.scrollLeft;
+  }, { passive: true });
+  wrap.addEventListener('touchmove', e => {
+    const dx = touchStartX - e.touches[0].clientX;
+    wrap.scrollLeft = touchScrollLeft + dx;
+  }, { passive: true });
+
+  wrap.style.overflowX = 'auto';
+  wrap.style.cursor = 'grab';
+  wrap.style.scrollbarWidth = 'none';
+  wrap.style.msOverflowStyle = 'none';
+}
+
+/* ══════════════════════════════════════════
+   3. PHOTO BOOTH STRIP + DOWNLOAD
+══════════════════════════════════════════ */
+function buildPhotoBooth() {
+  const strip  = document.getElementById('boothStrip');
+  const colors = document.getElementById('boothColors');
+  const dlBtn  = document.getElementById('boothDownload');
+  if (!strip) return;
+
+  const boothColors = [
+    '#ffffff','#f2d9d0','#a8b89a','#1a1410','#d4a853','#b8858a'
+  ];
+  const selectors = ['boothSel1','boothSel2','boothSel3','boothSel4'];
+  let currentColor = '#ffffff';
+
+  // Color buttons
+  boothColors.forEach((c, i) => {
+    const btn = document.createElement('div');
+    btn.className = 'booth-color-btn' + (i === 0 ? ' active' : '');
+    btn.style.background = c;
+    if (c === '#ffffff') btn.style.border = '2px solid var(--blush)';
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.booth-color-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentColor = c;
+      strip.style.background = c;
+      strip.style.color = (c === '#1a1410') ? '#f0e0d0' : '#888';
+    });
+    colors.appendChild(btn);
+  });
+
+  // Photo selectors
+  const photoOpts = galleryPhotos.map((p, i) => ({ label: p.caption || `Photo ${i+1}`, bg: p.bg }));
+  selectors.forEach((selId, si) => {
+    const sel = document.getElementById(selId);
+    if (!sel) return;
+    photoOpts.forEach((p, pi) => {
+      const opt = document.createElement('option');
+      opt.value = pi; opt.textContent = p.label;
+      sel.appendChild(opt);
+    });
+    sel.value = si % photoOpts.length;
+    sel.addEventListener('change', updateStrip);
+  });
+
+  function updateStrip() {
+    strip.innerHTML = '';
+    selectors.forEach((selId, si) => {
+      const sel = document.getElementById(selId);
+      const p   = photoOpts[sel ? parseInt(sel.value) : si];
+      const frame = document.createElement('div');
+      frame.className = 'booth-frame';
+      frame.style.background = p.bg;
+      frame.style.backgroundSize = 'cover';
+      frame.style.backgroundPosition = 'center';
+      frame.innerHTML = `<span class="booth-frame-num">${si + 1}</span>`;
+      strip.appendChild(frame);
+    });
+    const footer = document.createElement('div');
+    footer.className = 'booth-footer';
+    footer.textContent = '♡ picture album';
+    strip.appendChild(footer);
+    const date = document.createElement('div');
+    date.className = 'booth-date';
+    date.textContent = new Date().toLocaleDateString('en-US', { month:'long', year:'numeric' });
+    strip.appendChild(date);
+  }
+  updateStrip();
+
+  // Download using canvas
+  dlBtn && dlBtn.addEventListener('click', () => {
+    const canvas = document.createElement('canvas');
+    canvas.width  = 220;
+    canvas.height = 620;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = currentColor || '#fff';
+    ctx.fillRect(0, 0, 220, 620);
+
+    const frames = document.querySelectorAll('.booth-frame');
+    const promises = [];
+    frames.forEach((frame, i) => {
+      const bg = frame.style.backgroundImage || frame.style.background;
+      const urlMatch = bg.match(/url\(["']?([^"')]+)["']?\)/);
+      if (urlMatch) {
+        const p = new Promise(res => {
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = () => { ctx.drawImage(img, 10, 10 + i * 138, 200, 130); res(); };
+          img.onerror = res;
+          img.src = urlMatch[1];
+        });
+        promises.push(p);
+      } else {
+        // Gradient fallback
+        ctx.fillStyle = '#f2d9d0';
+        ctx.fillRect(10, 10 + i * 138, 200, 130);
+        promises.push(Promise.resolve());
+      }
+    });
+
+    Promise.all(promises).then(() => {
+      ctx.fillStyle = (currentColor === '#1a1410') ? '#f0e0d0' : '#888';
+      ctx.font = '14px serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('♡ picture album', 110, 570);
+      ctx.font = '11px sans-serif';
+      ctx.fillStyle = (currentColor === '#1a1410') ? '#a08070' : '#aaa';
+      ctx.fillText(new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'}), 110, 590);
+      const a = document.createElement('a');
+      a.download = 'photo-booth-strip.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+    });
+  });
+}
+
+/* ══════════════════════════════════════════
+   4. CASSETTE TAPE MUSIC PLAYER
+   Replaces the old music bar
+══════════════════════════════════════════ */
+function initCassettPlayer() {
+  // Remove old music bar if it exists
+  const oldBar = document.querySelector('.music-bar');
+  if (oldBar) oldBar.remove();
+
+  const bgMusic   = document.getElementById('bgMusic');
+  const gradMusic = document.getElementById('gradMusic');
+  const oldToggle = document.getElementById('musicToggle');
+  const gradSec   = document.getElementById('graduation');
+  let enabled     = false;
+  let trackName   = 'lo-fi morning vibes';
+
+  const bar = document.createElement('div');
+  bar.className = 'cassette-bar';
+  bar.innerHTML = `
+    <div class="cassette-body">
+      <svg class="cassette-svg" viewBox="0 0 90 52" xmlns="http://www.w3.org/2000/svg">
+        <!-- body -->
+        <rect x="1" y="1" width="88" height="50" rx="4" fill="#2a1808" stroke="#4a2a10" stroke-width="1.5"/>
+        <!-- window -->
+        <rect x="10" y="8" width="70" height="30" rx="3" fill="#1a1004" stroke="#3a2010" stroke-width="1"/>
+        <!-- label -->
+        <rect x="14" y="12" width="62" height="22" rx="2" fill="#8b4513" opacity=".7"/>
+        <!-- tape line -->
+        <path d="M14 38 Q45 34 76 38" stroke="#5a3820" stroke-width="2" fill="none"/>
+        <!-- reels -->
+        <circle class="reel reel-l" cx="28" cy="26" r="10" fill="#1a1004" stroke="#5a3820" stroke-width="1"/>
+        <circle cx="28" cy="26" r="4" fill="#3a2010"/>
+        <circle cx="28" cy="20" r="1.5" fill="#5a3820"/>
+        <circle cx="22" cy="29" r="1.5" fill="#5a3820"/>
+        <circle cx="34" cy="29" r="1.5" fill="#5a3820"/>
+        <circle class="reel reel-r" cx="62" cy="26" r="10" fill="#1a1004" stroke="#5a3820" stroke-width="1"/>
+        <circle cx="62" cy="26" r="4" fill="#3a2010"/>
+        <circle cx="62" cy="20" r="1.5" fill="#5a3820"/>
+        <circle cx="56" cy="29" r="1.5" fill="#5a3820"/>
+        <circle cx="68" cy="29" r="1.5" fill="#5a3820"/>
+        <!-- screw holes -->
+        <circle cx="6"  cy="6"  r="2" fill="#1a1004"/>
+        <circle cx="84" cy="6"  r="2" fill="#1a1004"/>
+        <circle cx="6"  cy="46" r="2" fill="#1a1004"/>
+        <circle cx="84" cy="46" r="2" fill="#1a1004"/>
+      </svg>
+      <div class="cassette-tape-line">
+        <div class="cassette-tape-move" id="cassTapeMove"></div>
+      </div>
+    </div>
+    <div class="cassette-info">
+      <div class="cassette-track-name" id="cassTrack">${trackName}</div>
+      <div class="cassette-label">side A ♡</div>
+    </div>
+    <div class="cassette-controls">
+      <button class="cass-btn" id="cassPlayBtn" title="Play/Pause">▶</button>
+    </div>
+  `;
+  document.body.appendChild(bar);
+
+  const reelL     = bar.querySelector('.reel-l');
+  const reelR     = bar.querySelector('.reel-r');
+  const tapeMove  = bar.querySelector('#cassTapeMove');
+  const trackEl   = bar.querySelector('#cassTrack');
+  const playBtn   = bar.querySelector('#cassPlayBtn');
+
+  function setPlaying(playing, name) {
+    trackEl.textContent = name || trackName;
+    playBtn.textContent = playing ? '⏸' : '▶';
+    playBtn.classList.toggle('active', playing);
+    if (playing) {
+      reelL.classList.add('spinning');
+      reelR.classList.add('spinning');
+      tapeMove.classList.add('playing');
+    } else {
+      reelL.classList.remove('spinning');
+      reelR.classList.remove('spinning');
+      tapeMove.classList.remove('playing');
+    }
+    if (oldToggle) {
+      oldToggle.textContent = playing ? '♫' : '♪';
+      oldToggle.classList.toggle('active', playing);
+    }
+  }
+
+  function playCorrect() {
+    if (!enabled) return;
+    const rect  = gradSec ? gradSec.getBoundingClientRect() : null;
+    const inGrad = rect && rect.top < window.innerHeight * .6 && rect.bottom > window.innerHeight * .4;
+    if (inGrad) {
+      bgMusic && bgMusic.pause();
+      if (gradMusic && gradMusic.paused) { gradMusic.play().catch(()=>{}); }
+      setPlaying(true, 'graduation theme 🎓');
+    } else {
+      gradMusic && gradMusic.pause();
+      if (bgMusic && bgMusic.paused) { bgMusic.play().catch(()=>{}); }
+      setPlaying(true, 'lo-fi morning vibes');
+    }
+  }
+
+  playBtn.addEventListener('click', () => {
+    enabled = !enabled;
+    if (!enabled) {
+      bgMusic   && bgMusic.pause();
+      gradMusic && gradMusic.pause();
+      setPlaying(false, 'paused');
+    } else { playCorrect(); }
+  });
+
+  // Keep old nav button working
+  if (oldToggle) {
+    oldToggle.addEventListener('click', () => { playBtn.click(); });
+  }
+
+  window.addEventListener('scroll', playCorrect, { passive: true });
+}
+
+/* ══════════════════════════════════════════
+   5. SCRAPBOOK DOODLES LAYER
+══════════════════════════════════════════ */
+function initScrapbookDoodles() {
+  const sections = document.querySelectorAll('.section, .section-alt');
+  sections.forEach((sec, si) => {
+    if (si % 2 !== 0) return; // every other section
+    const layer = document.createElement('div');
+    layer.className = 'doodle-layer';
+    sec.appendChild(layer);
+
+    const doodles = [
+      // Arrow
+      { x:'5%',  y:'15%', rot:'20deg',  color:'#d4a5a0', d:'M0,20 C10,5 30,5 40,20',   len:50  },
+      // Heart
+      { x:'88%', y:'20%', rot:'-10deg', color:'#b8858a', d:'M15,5 C15,0 8,0 5,5 C2,10 0,12 5,17 L15,25 L25,17 C30,12 28,10 25,5 C22,0 15,0 15,5Z', len:80, fill:'#f2d9d0' },
+      // Star
+      { x:'10%', y:'70%', rot:'15deg',  color:'#c4a882', d:'M15,0 L18,10 L28,10 L20,16 L23,26 L15,20 L7,26 L10,16 L2,10 L12,10Z', len:100, fill:'#fff3e0' },
+      // Swirl
+      { x:'85%', y:'65%', rot:'-5deg',  color:'#a8b89a', d:'M20,20 C20,10 10,5 5,10 C0,15 5,25 15,25 C25,25 30,15 25,5', len:80 },
+      // Stars dots
+      { x:'50%', y:'5%',  rot:'0deg',   color:'#d4a853', d:'M5,5 L7,9 L11,9 L8,12 L9,16 L5,14 L1,16 L2,12 L-1,9 L3,9Z', len:60, fill:'#fff9c4' },
+    ];
+
+    doodles.forEach((d, di) => {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+      svg.className = 'doodle-svg';
+      svg.setAttribute('viewBox','-5 -5 45 40');
+      svg.style.cssText = `
+        left:${d.x}; top:${d.y};
+        width:60px; transform:rotate(${d.rot});
+        --dur:${1 + di * .2}s; --del:${si * .1 + di * .15}s;
+        opacity:0;
+      `;
+
+      const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.className = 'doodle-path';
+      path.setAttribute('d', d.d);
+      path.setAttribute('stroke', d.color);
+      path.setAttribute('stroke-width','2');
+      path.setAttribute('fill', d.fill || 'none');
+      path.setAttribute('stroke-linecap','round');
+      path.style.cssText = `--len:${d.len}; --dur:${1 + di * .2}s; --del:${si * .1 + di * .15}s;`;
+      svg.appendChild(path);
+      layer.appendChild(svg);
+
+      // Trigger on scroll
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          svg.style.animation    = `doodleDraw ${1 + di * .2}s ${si * .1 + di * .15}s ease forwards`;
+          path.style.animation   = `doodleStroke ${1 + di * .2}s ${si * .1 + di * .15}s ease forwards`;
+          io.unobserve(svg);
+        });
+      }, { threshold: .1 });
+      io.observe(svg);
+    });
+  });
+}
+
+/* ══════════════════════════════════════════
+   6. ANIMATED LETTER UNFOLD
+══════════════════════════════════════════ */
+function initAnimatedLetter() {
+  const envelope = document.getElementById('letterEnvelope');
+  const openBtn  = document.getElementById('letterOpenBtn');
+  const paper    = document.getElementById('letterPaper');
+  const seal     = document.getElementById('letterSeal');
+  if (!envelope) return;
+
+  let opened = false;
+
+  function openLetter() {
+    if (opened) return;
+    opened = true;
+
+    envelope.classList.add('open');
+    openBtn.style.display = 'none';
+
+    setTimeout(() => {
+      paper.classList.add('visible');
+      const lines = paper.querySelectorAll('.letter-line');
+      lines.forEach((line, i) => {
+        setTimeout(() => line.classList.add('revealed'), 200 + i * 180);
+      });
+      if (seal) {
+        setTimeout(() => { seal.style.display = 'flex'; }, 200 + lines.length * 180 + 300);
+      }
+    }, 700);
+  }
+
+  envelope.addEventListener('click', openLetter);
+  openBtn  && openBtn.addEventListener('click', openLetter);
+}
+
+/* ══════════════════════════════════════════
+   7. VINTAGE POSTCARD GENERATOR
+══════════════════════════════════════════ */
+function buildPostcard() {
+  const photoSel  = document.getElementById('pcPhotoSel');
+  const titleIn   = document.getElementById('pcTitle');
+  const msgIn     = document.getElementById('pcMsg');
+  const stampsEl  = document.getElementById('pcStamps');
+  const dlBtn     = document.getElementById('pcDownload');
+  const pcPhoto   = document.getElementById('postcardPhoto');
+  const pcTitle   = document.getElementById('postcardTitle');
+  const pcMsg     = document.getElementById('postcardMsg');
+  const stampF    = document.getElementById('postcardStampFront');
+  const stampB    = document.getElementById('postcardStampBack');
+  if (!photoSel) return;
+
+  const stamps = ['🌸','🌷','🦋','✦','🍃','🌺','☁','🌙'];
+  let currentStamp = '🌸';
+
+  // Photo options
+  galleryPhotos.forEach((p, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = p.caption || `Photo ${i + 1}`;
+    photoSel.appendChild(opt);
+  });
+
+  // Stamp options
+  stamps.forEach((s, i) => {
+    const btn = document.createElement('div');
+    btn.className = 'pc-stamp-opt' + (i === 0 ? ' active' : '');
+    btn.textContent = s;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pc-stamp-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentStamp = s;
+      if (stampF) stampF.textContent = s;
+      if (stampB) stampB.textContent = s;
+    });
+    stampsEl && stampsEl.appendChild(btn);
+  });
+
+  function updatePreview() {
+    const p = galleryPhotos[parseInt(photoSel.value) || 0];
+    if (pcPhoto) {
+      pcPhoto.style.backgroundImage = p.bg.startsWith('url') ? p.bg : 'none';
+      pcPhoto.style.background      = p.bg;
+      pcPhoto.style.backgroundSize  = 'cover';
+      pcPhoto.style.backgroundPosition = 'center';
+    }
+    if (pcTitle) pcTitle.textContent = titleIn.value || 'My Memory';
+    if (pcMsg)   pcMsg.textContent   = msgIn.value   || 'Write your message here...';
+  }
+
+  photoSel.addEventListener('change', updatePreview);
+  titleIn  && titleIn.addEventListener('input', updatePreview);
+  msgIn    && msgIn.addEventListener('input', updatePreview);
+  updatePreview();
+
+  // Download
+  dlBtn && dlBtn.addEventListener('click', () => {
+    const front = document.getElementById('postcardFront');
+    const back  = document.getElementById('postcardBack');
+    if (!front || !back) return;
+
+    if (typeof html2canvas !== 'undefined') {
+      html2canvas(front).then(c => {
+        const a = document.createElement('a');
+        a.download = 'postcard-front.png';
+        a.href = c.toDataURL();
+        a.click();
+      });
+    } else {
+      // Fallback: simple canvas draw
+      const canvas = document.createElement('canvas');
+      canvas.width = 760; canvas.height = 480;
+      const ctx = canvas.getContext('2d');
+
+      const p = galleryPhotos[parseInt(photoSel.value) || 0];
+      const urlMatch = p.bg.match(/url\(["']?([^"')]+)["']?\)/);
+
+      const drawCard = () => {
+        ctx.fillStyle = '#fffef8';
+        ctx.fillRect(0, 0, 760, 480);
+        ctx.strokeStyle = '#f2d9d0';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(1, 1, 758, 478);
+
+        // Title
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 28px serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(titleIn.value || 'My Memory', 20, 460);
+
+        // Stamp area
+        ctx.fillStyle = '#f2d9d0';
+        ctx.fillRect(670, 10, 80, 100);
+        ctx.font = '40px serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(currentStamp, 710, 70);
+
+        const a = document.createElement('a');
+        a.download = 'postcard.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+      };
+
+      if (urlMatch) {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => {
+          ctx.drawImage(img, 0, 0, 760, 480);
+          ctx.fillStyle = 'rgba(0,0,0,.4)';
+          ctx.fillRect(0, 300, 760, 180);
+          drawCard();
+        };
+        img.onerror = drawCard;
+        img.src = urlMatch[1];
+      } else {
+        const grad = ctx.createLinearGradient(0,0,760,480);
+        grad.addColorStop(0,'#f2d9d0'); grad.addColorStop(1,'#d4a5a0');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 760, 480);
+        drawCard();
+      }
+    }
+  });
+}
+
+/* ══════════════════════════════════════════
+   8. HANDWRITING GUESTBOOK
+══════════════════════════════════════════ */
+function initGuestbook() {
+  const canvas    = document.getElementById('gbCanvas');
+  const submitBtn = document.getElementById('gbSubmit');
+  const clearBtn  = document.getElementById('gbClear');
+  const eraserBtn = document.getElementById('gbEraser');
+  const nameIn    = document.getElementById('gbName');
+  const wall      = document.getElementById('gbWall');
+  if (!canvas) return;
+
+  const ctx      = canvas.getContext('2d');
+  let drawing    = false;
+  let color      = '#4a3728';
+  let size       = 3;
+  let erasing    = false;
+
+  // Canvas background
+  ctx.fillStyle = '#fffef8';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Draw lines on canvas background
+  ctx.strokeStyle = 'rgba(184,133,138,.15)';
+  ctx.lineWidth = 1;
+  for (let y = 35; y < canvas.height; y += 35) {
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+  }
+
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width  / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const src = e.touches ? e.touches[0] : e;
+    return {
+      x: (src.clientX - rect.left) * scaleX,
+      y: (src.clientY - rect.top)  * scaleY,
+    };
+  }
+
+  canvas.addEventListener('mousedown',  e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+  canvas.addEventListener('mousemove',  e => {
+    if (!drawing) return;
+    const p = getPos(e);
+    ctx.lineWidth   = erasing ? size * 6 : size;
+    ctx.strokeStyle = erasing ? '#fffef8' : color;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+  });
+  canvas.addEventListener('mouseup',   () => drawing = false);
+  canvas.addEventListener('mouseleave',() => drawing = false);
+  canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); }, { passive: false });
+  canvas.addEventListener('touchmove',  e => {
+    e.preventDefault();
+    if (!drawing) return;
+    const p = getPos(e);
+    ctx.lineWidth   = erasing ? size * 6 : size;
+    ctx.strokeStyle = erasing ? '#fffef8' : color;
+    ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+  }, { passive: false });
+  canvas.addEventListener('touchend', () => drawing = false);
+
+  // Color buttons
+  document.querySelectorAll('.gb-color').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gb-color').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      color   = btn.dataset.color === 'pink' ? '#f9a8d4' : btn.dataset.color;
+      erasing = false;
+      eraserBtn.classList.remove('active');
+    });
+  });
+
+  // Size buttons
+  document.querySelectorAll('.gb-size').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gb-size').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      size = parseInt(btn.dataset.size);
+    });
+  });
+
+  // Eraser
+  eraserBtn && eraserBtn.addEventListener('click', () => {
+    erasing = !erasing;
+    eraserBtn.classList.toggle('active', erasing);
+  });
+
+  // Clear
+  clearBtn && clearBtn.addEventListener('click', () => {
+    ctx.fillStyle = '#fffef8';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(184,133,138,.15)';
+    ctx.lineWidth = 1;
+    for (let y = 35; y < canvas.height; y += 35) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
+    }
+  });
+
+  // Submit
+  submitBtn && submitBtn.addEventListener('click', () => {
+    const name     = nameIn.value.trim() || 'anonymous ♡';
+    const dataURL  = canvas.toDataURL('image/png');
+    const rots     = ['-2deg','1.5deg','-1deg','2.5deg','0.5deg'];
+    const rot      = rots[Math.floor(Math.random() * rots.length)];
+
+    const entry    = document.createElement('div');
+    entry.className = 'gb-entry';
+    entry.style.setProperty('--rot', rot);
+
+    const img      = document.createElement('img');
+    img.src        = dataURL;
+    img.style.cssText = 'width:100%;border-radius:2px;display:block;';
+
+    const nameEl   = document.createElement('div');
+    nameEl.className = 'gb-entry-name';
+    nameEl.textContent = name;
+
+    entry.appendChild(img);
+    entry.appendChild(nameEl);
+
+    // Save to localStorage
+    const stored = JSON.parse(localStorage.getItem('gbEntries') || '[]');
+    stored.unshift({ dataURL, name, rot });
+    if (stored.length > 20) stored.pop();
+    localStorage.setItem('gbEntries', JSON.stringify(stored));
+
+    wall.insertBefore(entry, wall.firstChild);
+    clearBtn.click();
+    nameIn.value = '';
+
+    // Tiny success flash
+    submitBtn.textContent = 'Pinned! ♡';
+    setTimeout(() => submitBtn.textContent = 'Pin it ✦', 1800);
+  });
+
+  // Load saved entries
+  const saved = JSON.parse(localStorage.getItem('gbEntries') || '[]');
+  saved.forEach(s => {
+    const entry  = document.createElement('div');
+    entry.className = 'gb-entry';
+    entry.style.setProperty('--rot', s.rot);
+    const img    = document.createElement('img');
+    img.src      = s.dataURL;
+    img.style.cssText = 'width:100%;border-radius:2px;display:block;';
+    const nameEl = document.createElement('div');
+    nameEl.className = 'gb-entry-name';
+    nameEl.textContent = s.name;
+    entry.appendChild(img); entry.appendChild(nameEl);
+    wall.appendChild(entry);
+  });
+}
+
+/* ══════════════════════════════════════════
+   9. MIRROR SELFIE WALL
+══════════════════════════════════════════ */
+function buildMirrorWall() {
+  const grid      = document.getElementById('mirrorGrid');
+  const lightsTop = document.getElementById('mirrorLights');
+  const sideL     = document.getElementById('mirrorSideL');
+  const sideR     = document.getElementById('mirrorSideR');
+  if (!grid) return;
+
+  // Top bulbs
+  if (lightsTop) {
+    for (let i = 0; i < 12; i++) {
+      const b = document.createElement('div');
+      b.className = 'mirror-bulb';
+      b.style.cssText = `--dur:${2 + Math.random() * 3}s; --del:${-Math.random() * 3}s;`;
+      lightsTop.appendChild(b);
+    }
+  }
+
+  // Side bulbs
+  [sideL, sideR].forEach(side => {
+    if (!side) return;
+    for (let i = 0; i < 6; i++) {
+      const b = document.createElement('div');
+      b.className = 'mirror-bulb';
+      b.style.cssText = `--dur:${2.5 + Math.random() * 2}s; --del:${-Math.random() * 2}s; width:14px; height:14px;`;
+      side.appendChild(b);
+    }
+  });
+
+  // Photos — pick from gallery filtering real photo urls
+  const realPhotos = galleryPhotos.filter(p => p.bg.startsWith('url'));
+  const pool = realPhotos.length >= 6 ? realPhotos : galleryPhotos;
+  const picks = pool.slice(0, 9);
+
+  picks.forEach(p => {
+    const item = document.createElement('div');
+    item.className = 'mirror-photo-item';
+    item.innerHTML = `
+      <div class="mirror-photo-img" style="background:${p.bg};background-size:cover;background-position:center;"></div>
+      <div class="mirror-photo-reflection" style="background:${p.bg};"></div>
+    `;
+    item.addEventListener('click', () => {
+      const idx = galleryPhotos.indexOf(p);
+      if (idx >= 0) openLightbox(idx, 'gallery');
+    });
+    grid.appendChild(item);
+  });
+}
+
+
+/* ════════════════════════════════════════════
+   INIT
+════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  // Gate petals (always visible)
+  createPetalRain('gatePetals', 12);
+
+  initPasswordGate();
+  initDarkMode();
+  initNav();
+  initMusic();
+
+  buildGallery();
+  buildMemories();
+  buildTimeline();
+  buildGraduationTimeline();
+
+initNightSkyHero();
+buildFilmRoll();
+buildPhotoBooth();
+initCassettPlayer();
+initScrapbookDoodles();
+initAnimatedLetter();
+buildPostcard();
+initGuestbook();
+buildMirrorWall();
+
+  initCursorPetalTrail();
+initFilmDeveloping();
+initShuffleGallery();
+initPhotoTilt();
+initDoubleTapHeart();
+initEasterEgg();
+initStickyNotes();
+initTodayInMemories();
+initTypewriter();
+buildMoodboard();
+
+  // Album petals & confetti
+  createPetalRain('heroPetals', 16);
+  createConfetti('confettiLayer', 35);
+
+  const reObserve = initReveal();
+  setTimeout(reObserve, 120);
+});
+</script>
+</html>
